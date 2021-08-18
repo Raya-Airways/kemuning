@@ -6,10 +6,17 @@
         - @position.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :mission
-    = f.text_field :mission
+  .row
+    .col-md-3.mb-3
+      = f.label :position_code
+      = f.text_field :position_code, class: "form-control"
+
+    .col-md-6.mb-3
+      = f.label :name
+      = f.text_field :name, class: "form-control"
+
+    .col-md-9.mb-3
+      = f.label :mission
+      = f.text_field :mission, class: "form-control"
+
   .actions = f.submit

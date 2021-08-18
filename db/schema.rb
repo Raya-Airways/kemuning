@@ -40,7 +40,19 @@ ActiveRecord::Schema.define(version: 2021_08_18_015640) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "events", force: :cascade do |t|
+    t.integer "task_id"
+    t.integer "position_id"
+    t.integer "sequence"
+    t.string "description"
+    t.string "steps"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "positions", force: :cascade do |t|
+    t.integer "position_code"
+    t.integer "parent_id"
     t.string "name"
     t.string "mission"
     t.datetime "created_at", precision: 6, null: false
@@ -48,6 +60,8 @@ ActiveRecord::Schema.define(version: 2021_08_18_015640) do
   end
 
   create_table "tasks", force: :cascade do |t|
+    t.string "task_code"
+    t.integer "position_id"
     t.string "description"
     t.string "findings"
     t.string "risks"

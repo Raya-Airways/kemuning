@@ -1,8 +1,9 @@
-h1 Listing positions
+p.lead Listing positions
 
-table
+table.table
   thead
     tr
+      th Code
       th Name
       th Mission
       th
@@ -12,6 +13,7 @@ table
   tbody
     - @positions.each do |position|
       tr
+        td = position.position_code
         td = position.name
         td = position.mission
         td = link_to 'Show', position

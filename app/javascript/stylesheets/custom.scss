@@ -11,9 +11,13 @@ body {
 
   .navbar {
       background-color: $raya-blue !important;
+      .navbar-brand {font-weight: bolder; color: $raya-red;}
       .nav-item a {
-        color: white !important;
-        &:hover {font-weight: bold !important; }
+        color: white;
+        &:hover {font-weight: bold; }
       }
+  }
+  .container-fluid.main {
+    padding: 40px 5%;
   }
 }
