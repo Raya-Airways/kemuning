@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 #layout and processor rubygems
+#gem 'trix-rails', '~> 2.2', require: 'trix'
 gem 'bootstrap', '~> 5.1'
 gem 'slim', '~> 4.1'
 gem 'slim-rails', '~> 3.3'

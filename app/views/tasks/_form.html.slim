@@ -6,16 +6,46 @@
         - @task.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :findings
-    = f.text_field :findings
-  .field
-    = f.label :risks
-    = f.text_field :risks
-  .field
-    = f.label :recommendations
-    = f.text_field :recommendations
+  .row
+    .col-md-3.mb-3
+      = f.label :task_code
+      = f.text_field :task_code, class: "form-control"
+
+  .row
+    .col-md-6.mb-3
+      = f.label :position_id
+      = f.text_field :position_id, class: "form-control"
+
+  .row
+    .col-md-9.mb-3
+      = f.label :description
+      = f.text_area :description, class: "form-control", rows: 3
+
+  .row
+    .col-md-9.mb-3
+      = f.label :notes
+      = f.rich_text_area  :notes, class: "form-control trix-10"
+
+  .row
+    .col-md-9.mb-3
+      = f.label :bpmn, "Upload BPMN Diagram"
+      = f.file_field  :bpmn, class: "form-control"
+
+
+
+  .row
+    .col-md-9.mb-3
+      = f.label :findings
+      = f.rich_text_area  :findings, class: "form-control trix-5"
+
+  .row
+    .col-md-9.mb-3
+      = f.label :risks
+      = f.rich_text_area  :risks, class: "form-control trix-5"
+
+  .row
+    .col-md-9.mb-3
+      = f.label :recommendations
+      = f.rich_text_area  :recommendations, class: "form-control trix-5"
+
   .actions = f.submit
