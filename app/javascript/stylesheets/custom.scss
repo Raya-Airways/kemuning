@@ -1,0 +1,19 @@
+// Place all the styles related to the Positions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+$raya-blue: #079CF6;
+$raya-red: #F5191B;
+
+
+body {
+  background-color: #fff;
+
+  .navbar {
+      background-color: $raya-blue !important;
+      .nav-item a {
+        color: white !important;
+        &:hover {font-weight: bold !important; }
+      }
+  }
+}

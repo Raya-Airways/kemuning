@@ -1,0 +1,28 @@
+h1 Aircraft
+
+table.table
+  thead
+    tr
+      th AcModelGroupId
+      th Description
+      th SuspendBy
+      th SuspendDate
+      th IsSuspend
+      th CreateBy
+      th CreateDate
+      th EditBy
+      th EditDate
+
+
+  tbody
+    - @aircrafts.each do | aircraft |
+      tr
+        td= aircraft.AcModelGroupId
+        td= aircraft.Description
+        td= aircraft.SuspendBy
+        td= aircraft.SuspendDate
+        td= aircraft.IsSuspend
+        td= aircraft.CreateBy
+        td= aircraft.CreateDate
+        td= aircraft.EditBy
+        td= aircraft.EditDate

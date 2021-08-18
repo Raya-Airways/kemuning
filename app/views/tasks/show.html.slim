@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Description:
+  = @task.description
+
+p
+  strong Findings:
+  = @task.findings
+
+p
+  strong Risks:
+  = @task.risks
+
+p
+  strong Recommendations:
+  = @task.recommendations
+
+=> link_to 'Edit', edit_task_path(@task)
+'|
+=< link_to 'Back', tasks_path

@@ -1,0 +1,21 @@
+rails generate scaffold Position name:string mission:string
+rails generate scaffold Task description:string findings:string risks:string recommendations:string [related process], as[bpmn, documents, dmn]
+
+associations
+rails generate migration Event task_id:integer position_id:integer description:string steps:text, as[documents]
+
+active storage
+process -
+
+
+cancan
+
+admin
+manager
+owner
+none
+
+
+
+
+Staff post:string reports_to:integer rank:string grade:string department:string units:integer
