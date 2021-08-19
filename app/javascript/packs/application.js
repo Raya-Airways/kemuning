@@ -11,6 +11,10 @@ import "channels"
 import 'bootstrap/dist/js/bootstrap'
 import "bootstrap/dist/css/bootstrap";
 import "stylesheets/application"
+require("jquery");
+//import "bpmn-js"
+//import BpmnViewer from 'bpmn-js';
+
 
 Rails.start()
 Turbolinks.start()
@@ -18,3 +22,4 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
+//require("bpmn-js")

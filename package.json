@@ -10,6 +10,7 @@
     "@rails/webpacker": "5.4.0",
     "bootstrap": "^5.1.0",
     "bpmn-js": "^8.7.1",
+    "jquery": "^3.6.0",
     "orgchart": "^3.1.1",
     "trix": "^1.2.0",
     "turbolinks": "^5.2.0",

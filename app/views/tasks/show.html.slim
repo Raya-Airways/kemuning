@@ -1,20 +1,46 @@
 p#notice = notice
 
-p
-  strong Description:
-  = @task.description
+dl.row
+  dt.col-md-3 Process Code
+  dd.col-md-9= @task.code
 
-p
-  strong Findings:
-  = @task.findings
+dl.row
+  dt.col-md-3 Title
+  dd.col-md-9= @task.title
 
-p
-  strong Risks:
-  = @task.risks
+dl.row
+  dt.col-md-3 Title
+  dd.col-md-9= @task.title
 
-p
-  strong Recommendations:
-  = @task.recommendations
+dl.row
+  dt.col-md-3 Owner
+  dd.col-md-9= @task.position_id
+
+dl.row
+  dt.col-md-3 Process Description
+  dd.col-md-9= @task.description
+
+dl.row
+  dt.col-md-3 Notes
+  dd.col-md-9= @task.notes
+
+dl.row
+  dt.col-md-3 BPMN
+  dd.col-md-9[style= "min-height:80%;"]= render 'viewer-bpmn'
+
+hr
+dl.row
+  dt.col-md-3 Findings
+  dd.col-md-9== @task.findings
+
+dl.row
+  dt.col-md-3 Risks
+  dd.col-md-9== @task.risks
+
+dl.row
+  dt.col-md-3 Recommendations
+  dd.col-md-9== @task.recommendations
+
 
 => link_to 'Edit', edit_task_path(@task)
 '|

@@ -15,7 +15,8 @@ table.table
   tbody
     - @tasks.each do |task|
       tr
-        td = task.task_code
+        td = task.code
+        td = task.title
         td = task.description
         td = task.findings
         td = task.risks

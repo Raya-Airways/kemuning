@@ -8,8 +8,12 @@
 
   .row
     .col-md-3.mb-3
-      = f.label :task_code
-      = f.text_field :task_code, class: "form-control"
+      = f.label :code
+      = f.text_field :code, class: "form-control"
+
+    .col-md-6.mb-3
+      = f.label :title
+      = f.text_field :title, class: "form-control"
 
   .row
     .col-md-6.mb-3

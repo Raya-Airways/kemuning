@@ -1,0 +1,71 @@
+<% rails_blob_path(@task.bpmn) %>
+
+ <div id="canvas" style="height: 400px;"></div>
+
+ <script>
+   var diagramUrlX = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/dfceecba/starter/diagram.bpmn';
+   var diagramUrl = '<%= rails_blob_path(@task.bpmn) %>';
+
+
+
+   // viewer instance
+   var bpmnViewer = new BpmnJS({
+     container: '#canvas'
+   });
+
+
+   /**
+    * Open diagram in our viewer instance.
+    *
+    * @param {String} bpmnXML diagram to display
+    */
+   async function openDiagram(bpmnXML) {
+
+     // import diagram
+     try {
+
+       await bpmnViewer.importXML(bpmnXML);
+
+       // access viewer components
+       var canvas = bpmnViewer.get('canvas');
+       var overlays = bpmnViewer.get('overlays');
+
+
+       // zoom to fit full viewport
+       canvas.zoom('fit-viewport');
+
+       // attach an overlay to a node
+       overlays.add('SCAN_OK', 'note', {
+         position: {
+           bottom: 0,
+           right: 0
+         },
+         html: '<div class="diagram-note">Mixed up the labels?</div>'
+       });
+
+       // add marker
+       canvas.addMarker('SCAN_OK', 'needs-discussion');
+     } catch (err) {
+
+       console.error('could not import BPMN 2.0 diagram', err);
+     }
+   }
+
+
+   // load external diagram file via AJAX and open it
+   $.get(diagramUrl, openDiagram, 'text');
+ </script>
+ <!--
+   Thanks for trying out our BPMN toolkit!
+   If you'd like to learn more about what our library,
+   continue with some more basic examples:
+   * https://github.com/bpmn-io/bpmn-js-examples/overlays
+   * https://github.com/bpmn-io/bpmn-js-examples/interaction
+   * https://github.com/bpmn-io/bpmn-js-examples/colors
+   * https://github.com/bpmn-io/bpmn-js-examples/commenting
+   To get a bit broader overview over how bpmn-js works,
+   follow our walkthrough:
+   * https://bpmn.io/toolkit/bpmn-js/walkthrough/
+   Related starters:
+   * https://raw.githubusercontent.com/bpmn-io/bpmn-js-examples/starter/modeler.html
+ -->
