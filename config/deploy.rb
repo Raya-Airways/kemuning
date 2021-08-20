@@ -3,7 +3,6 @@ require 'mina/multistage'
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
-
 # Basic settings:
 #   settings in config/deploy/<environment>.rb
 
