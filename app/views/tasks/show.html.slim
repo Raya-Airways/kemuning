@@ -9,12 +9,8 @@ dl.row
   dd.col-md-9= @task.title
 
 dl.row
-  dt.col-md-3 Title
-  dd.col-md-9= @task.title
-
-dl.row
   dt.col-md-3 Owner
-  dd.col-md-9= @task.position_id
+  dd.col-md-9 #{@task.position} ~ #{display_owner(@task.position)}
 
 dl.row
   dt.col-md-3 Process Description
@@ -22,11 +18,20 @@ dl.row
 
 dl.row
   dt.col-md-3 Notes
-  dd.col-md-9= @task.notes
+  dd.col-md-9== @task.notes
 
 dl.row
   dt.col-md-3 BPMN
-  dd.col-md-9[style= "min-height:80%;"]= render 'viewer-bpmn'
+  dd.col-md-9
+    - if @task.bpmn.attachment?
+      = render 'viewer-bpmn'
+
+dl.row
+  dt.col-md-3
+    | Event Description <br>
+    = link_to (content_tag(:i, "", class: 'fas fa-file-alt') + " Add New Event"), new_event_path(task: @task), class: "btn btn-secondary", data: {toggle: "tooltip", placement: "left"}, "title"=>"Create Event"
+
+  dd.col-md-9= render 'events-table'
 
 hr
 dl.row

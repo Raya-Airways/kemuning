@@ -1,0 +1,12 @@
+
+
+.row
+  .col-md-1.label Seq.
+  .col-md-2.label Owner
+  .col-md-4.label Title
+
+- @task.events.order(sequence: :asc).each do | e |
+  .row
+    .col-md-1= link_to e.sequence, edit_event_path(e)
+    .col-md-2= e.position_id
+    .col-md-4= e.title

@@ -1,0 +1,36 @@
+= form_for @event do |f|
+  - if @event.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@event.errors.count, 'error')} prohibited this task from being saved:"
+      ul
+        - @event.errors.full_messages.each do |message|
+          li = message
+
+  = f.hidden_field :task_id
+
+  .row
+    .col-md-3.mb-3
+      = f.label :sequence, class: "required"
+      = f.number_field :sequence, class: "form-control", required: "required"
+
+    .col-md-6.mb-3
+      = f.label :title
+      = f.text_field :title, class: "form-control"
+
+  .row
+    .col-md-6.mb-3
+      = f.label :position_id
+      = f.text_field :position_id, class: "form-control"
+
+  .row
+    .col-md-9.mb-3
+      = f.label :description
+      = f.text_area :title, class: "form-control", rows: 3
+
+  .row
+    .col-md-9.mb-3
+      = f.label :steps
+      = f.text_area   :description, class: "form-control trix-10"
+
+
+  .actions = f.submit

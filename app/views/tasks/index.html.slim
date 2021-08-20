@@ -18,9 +18,9 @@ table.table
         td = task.code
         td = task.title
         td = task.description
-        td = task.findings
-        td = task.risks
-        td = task.recommendations
+        td == task.findings
+        td == task.risks
+        td == task.recommendations
         td = link_to 'Show', task
         td = link_to 'Edit', edit_task_path(task)
         td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete

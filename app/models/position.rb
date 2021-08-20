@@ -2,10 +2,11 @@ class Position < ApplicationRecord
 
   before_save :set_parent
 
-  validates :position_code, uniqueness: true
+  validates :code, :name, presence: true
+  validates :code, uniqueness: true
 
   def set_parent
-    self.parent_id = position_code.to_s.chop.to_i
+    self.parent_id = code.to_s.chop.to_i
   end
 
 end

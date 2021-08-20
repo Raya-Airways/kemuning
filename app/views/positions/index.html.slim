@@ -13,7 +13,7 @@ table.table
   tbody
     - @positions.each do |position|
       tr
-        td = position.position_code
+        td = position.code
         td = position.name
         td = position.mission
         td = link_to 'Show', position

@@ -6,6 +6,8 @@ class CreatePositions < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :mission
 
+      t.integer :created_by
+      t.integer :updated_by
       t.timestamps
     end
   end

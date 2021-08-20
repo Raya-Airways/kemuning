@@ -51,11 +51,14 @@ ActiveRecord::Schema.define(version: 2021_08_18_094455) do
   end
 
   create_table "events", force: :cascade do |t|
+    t.string "code"
     t.integer "sequence"
     t.integer "task_id"
     t.integer "position_id"
-    t.string "description"
-    t.string "steps"
+    t.string "title"
+    t.text "description"
+    t.integer "created_by"
+    t.integer "updated_by"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -65,6 +68,8 @@ ActiveRecord::Schema.define(version: 2021_08_18_094455) do
     t.integer "parent_id"
     t.string "name"
     t.string "mission"
+    t.integer "created_by"
+    t.integer "updated_by"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -72,8 +77,11 @@ ActiveRecord::Schema.define(version: 2021_08_18_094455) do
   create_table "tasks", force: :cascade do |t|
     t.string "code"
     t.string "title"
-    t.integer "position_id"
+    t.string "security"
+    t.string "position"
     t.string "description"
+    t.integer "created_by"
+    t.integer "updated_by"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
