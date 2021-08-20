@@ -4,20 +4,5 @@
 
 Application to capture business processes
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Captures People, Processes, BPMN+DM, Documents, and Events.
+Should output in pretty PDF

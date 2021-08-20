@@ -5,8 +5,8 @@ ruby '3.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -26,15 +26,22 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 #layout and processor rubygems
-#gem 'trix-rails', '~> 2.2', require: 'trix'
 gem 'bootstrap', '~> 5.1'
 gem 'slim', '~> 4.1'
 gem 'slim-rails', '~> 3.3'
 
-
+#deployment
+gem 'mina', '~> 1.2', '>= 1.2.4'
+gem 'mina-puma', :require => false
+gem 'mina-multistage', '~> 1.0.3', require: false
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+
+
+group :production, :staging do
+  gem 'pg', '~> 1.2', '>= 1.2.3'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,6 +50,7 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'sqlite3', '~> 1.4'
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
