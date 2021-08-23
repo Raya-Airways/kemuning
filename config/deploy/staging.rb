@@ -14,3 +14,4 @@ set :ssh_options, '-A'
 #   set :port, '30000'           # SSH port number.
 set :forward_agent, true     # SSH forward_agent.
 set :start_port, 3002
+set :keep_releases, '2'
