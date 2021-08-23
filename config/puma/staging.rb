@@ -19,6 +19,8 @@ stdout_redirect "/var/www/kemuning-raya-staging/shared/log/puma.stdout.log", "/v
 workers 0
 threads 1,2
 
+daemonize true
+
 activate_control_app 'unix:///var/www/kemuning-raya-staging/shared/tmp/sockets/pumactl.sock'
 prune_bundler
 
