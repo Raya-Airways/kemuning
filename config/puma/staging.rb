@@ -1,5 +1,7 @@
 # see development for readmes
 #
+require 'puma/daemon'
+
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 2 }
 threads threads_count, threads_count
 
