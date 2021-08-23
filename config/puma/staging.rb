@@ -1,17 +1,16 @@
 # see development for readmes
 #
-threads_count = ENV.fetch("RAILS_MAX_THREADS") { 4 }
+threads_count = ENV.fetch("RAILS_MAX_THREADS") { 2 }
 threads threads_count, threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 port        ENV.fetch("PORT") { 3002 }
 
 # Specifies the `environment` that Puma will run in.
-environment ENV.fetch("RAILS_ENV") { "staging" }
 environment "staging"
 
 bind  "unix:///var/www/kemuning-raya-staging/shared/tmp/sockets/puma.sock"
-pidfile "/var/www/kemuning-raya-staging/tmp/pids/puma.pid"
+pidfile "/var/www/kemuning-raya-staging/shared/tmp/pids/puma.pid"
 state_path "/var/www/kemuning-raya-staging/shared/tmp/sockets/puma.state"
 directory "/var/www/kemuning-raya-staging/current"
 
