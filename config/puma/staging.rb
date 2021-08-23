@@ -17,7 +17,7 @@ directory "/var/www/kemuning-raya-staging/current"
 
 stdout_redirect "/var/www/kemuning-raya-staging/shared/log/puma.stdout.log", "/var/www/kemuning-raya-staging/shared/log/puma.stderr.log", true
 
-workers 1
+workers 0
 threads 1,2
 
 activate_control_app 'unix:///var/www/kemuning-raya-staging/shared/tmp/sockets/pumactl.sock'
