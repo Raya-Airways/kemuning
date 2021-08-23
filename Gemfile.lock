@@ -123,6 +123,9 @@ GEM
     public_suffix (4.0.6)
     puma (5.4.0)
       nio4r (~> 2.0)
+    puma-daemon (0.1.2)
+      puma (>= 5.0)
+      rack
     racc (1.5.2)
     rack (2.2.3)
     rack-mini-profiler (2.3.2)
@@ -237,6 +240,7 @@ DEPENDENCIES
   mina-puma
   pg (~> 1.2, >= 1.2.3)
   puma (~> 5.0)
+  puma-daemon (~> 0.1.2)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4)
   sass-rails (>= 6)

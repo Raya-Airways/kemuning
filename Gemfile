@@ -41,6 +41,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :production, :staging do
   gem 'pg', '~> 1.2', '>= 1.2.3'
+  gem 'puma-daemon', '~> 0.1.2'
 end
 
 group :development, :test do
