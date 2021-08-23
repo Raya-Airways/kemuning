@@ -6,7 +6,7 @@ require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 # Basic settings:
 #   settings in config/deploy/<environment>.rb
 
-set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/master.key')
+set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/staging.key')
 set :shared_paths, ['tmp/pids', 'tmp/sockets', 'storage']
 set :puma_state, "#{fetch(:shared_path)}/tmp/sockets/puma.state"
 set :puma_socket, "#{fetch(:shared_path)}/tmp/sockets/puma.sock"
