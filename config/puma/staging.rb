@@ -15,12 +15,13 @@ pidfile "/var/www/kemuning-raya-staging/tmp/pids/puma.pid"
 state_path "/var/www/kemuning-raya-staging/shared/tmp/sockets/puma.state"
 directory "/var/www/kemuning-raya-staging/current"
 
+stdout_redirect "/var/www/kemuning-raya-staging/shared/log/puma.stdout.log", "/var/www/kemuning-raya-staging/shared/log/puma.stderr.log", true
+
 workers 1
 threads 1,2
-
-daemonize true
 
 activate_control_app 'unix:///var/www/kemuning-raya-staging/shared/tmp/sockets/pumactl.sock'
 prune_bundler
 
 plugin :tmp_restart
+activate_control_app
