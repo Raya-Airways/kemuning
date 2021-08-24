@@ -64,6 +64,6 @@ class PositionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def position_params
-      params.require(:position).permit(:code, :name, :mission)
+      params.require(:position).permit(:code, :name, :parent_id, :mission)
     end
 end

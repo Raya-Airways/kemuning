@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_08_18_094455) do
 
   create_table "positions", force: :cascade do |t|
     t.integer "code"
+    t.string "combo_code"
     t.integer "parent_id"
     t.string "name"
     t.string "mission"
