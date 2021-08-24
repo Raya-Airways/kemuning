@@ -9,13 +9,14 @@
   .row
     .col-md-2.mb-3
       = f.label "Position Code"
+
       .row
         - if  @position.parent
           .col
             = text_field_tag :parent_code, @position.parent.code, class: "form-control", readonly: true
 
-          .col
-            = f.text_field :code, class: "form-control"
+        .col
+          = f.text_field :code, class: "form-control"
 
     .col-md-7.mb-3
       = f.label :name
