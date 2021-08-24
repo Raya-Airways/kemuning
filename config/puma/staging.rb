@@ -26,4 +26,3 @@ activate_control_app 'unix:///var/www/kemuning-raya-staging/shared/tmp/sockets/p
 prune_bundler
 
 plugin :tmp_restart
-activate_control_app
