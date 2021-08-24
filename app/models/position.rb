@@ -8,19 +8,15 @@ class Position < ApplicationRecord
   validates :combo_code, uniqueness: true
 
   def set_combo_code
-    Rails.logger.info '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
     if parent_id.nil?
       self.combo_code = "#{code.to_s}"
     else
       self.combo_code = "#{parent.combo_code}" + "." + "#{code.to_s}"
     end
-    Rails.logger.info '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-    Rails.logger.info combo_code
-
   end
 
   def position_description
-    "#{code}" + " - " + "#{name}"
+    "#{combo_code}" + " - " + "#{name}"
   end
 
 end
