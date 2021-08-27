@@ -3,10 +3,11 @@ require 'mina/multistage'
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
+require 'mina/puma'
 # Basic settings:
 #   settings in config/deploy/<environment>.rb
 
-set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/master.key')
+set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/credentials/staging.key')
 set :shared_paths, ['tmp/pids', 'tmp/sockets', 'storage']
 set :puma_state, "#{fetch(:shared_path)}/tmp/sockets/puma.state"
 set :puma_socket, "#{fetch(:shared_path)}/tmp/sockets/puma.sock"
@@ -54,7 +55,7 @@ task :deploy do
     on :launch do
       in_path(fetch(:current_path)) do
         command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
+        #invoke :'puma:phased_restart'
       end
     end
   end

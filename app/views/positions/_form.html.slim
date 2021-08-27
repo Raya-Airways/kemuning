@@ -7,16 +7,30 @@
           li = message
 
   .row
-    .col-md-3.mb-3
-      = f.label :position_code
-      = f.text_field :code, class: "form-control"
+    .col-md-2.mb-3
+      = f.label "Position Code"
 
-    .col-md-6.mb-3
+      .row
+        - if  @position.parent
+          .col
+            = text_field_tag :parent_code, @position.parent.code, class: "form-control", readonly: true
+
+        .col
+          = f.text_field :code, class: "form-control"
+
+    .col-md-7.mb-3
       = f.label :name
       = f.text_field :name, class: "form-control"
 
+  .row
+    .col-md-9.mb-3
+      = f.label :parent_id, "Reports to"
+      = f.collection_select :parent_id, Position.all, :id, :position_description, {selected:  @position.parent_id}, class: "form-control"
+
+
+  .row
     .col-md-9.mb-3
       = f.label :mission
       = f.text_field :mission, class: "form-control"
 
-  .actions = f.submit
+  .actions = f.submit class: "btn btn-primary"

@@ -3,7 +3,7 @@ class PositionsController < ApplicationController
 
   # GET /positions or /positions.json
   def index
-    @positions = Position.order(position_code: :asc)
+    @positions = Position.order(combo_code: :asc)
   end
 
   # GET /positions/1 or /positions/1.json
@@ -64,6 +64,6 @@ class PositionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def position_params
-      params.require(:position).permit(:code, :name, :mission)
+      params.require(:position).permit(:code, :name, :parent_id, :mission)
     end
 end

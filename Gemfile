@@ -8,7 +8,8 @@ gem 'rails', '~> 6.1.4'
 
 
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+#gem 'puma', '~> 5.0'
+gem 'puma', '~> 4.3', '>= 4.3.8'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -41,6 +42,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :production, :staging do
   gem 'pg', '~> 1.2', '>= 1.2.3'
+  gem 'seed_dump', '~> 3.3', '>= 3.3.1'
 end
 
 group :development, :test do
@@ -58,6 +60,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'bullet', '~> 6.1'
 end
 
 group :test do

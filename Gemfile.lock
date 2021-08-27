@@ -72,6 +72,9 @@ GEM
       popper_js (>= 2.9.3, < 3)
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
+    bullet (6.1.5)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.1.3)
     capybara (3.35.3)
       addressable
@@ -121,7 +124,7 @@ GEM
     pg (1.2.3)
     popper_js (2.9.3)
     public_suffix (4.0.6)
-    puma (5.4.0)
+    puma (4.3.8)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -173,6 +176,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed_dump (3.3.1)
+      activerecord (>= 4)
+      activesupport (>= 4)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -201,6 +207,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    uniform_notifier (1.14.2)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -228,6 +235,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   bootstrap (~> 5.1)
+  bullet (~> 6.1)
   byebug
   capybara (>= 3.26)
   jbuilder (~> 2.7)
@@ -236,10 +244,11 @@ DEPENDENCIES
   mina-multistage (~> 1.0.3)
   mina-puma
   pg (~> 1.2, >= 1.2.3)
-  puma (~> 5.0)
+  puma (~> 4.3, >= 4.3.8)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4)
   sass-rails (>= 6)
+  seed_dump (~> 3.3, >= 3.3.1)
   selenium-webdriver
   slim (~> 4.1)
   slim-rails (~> 3.3)

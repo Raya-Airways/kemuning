@@ -1,5 +1,4 @@
 p.lead Listing positions
-
 table.table
   thead
     tr
@@ -13,12 +12,13 @@ table.table
   tbody
     - @positions.each do |position|
       tr
-        td = position.code
+        td = position.combo_code
         td = position.name
         td = position.mission
-        td = link_to 'Show', position
-        td = link_to 'Edit', edit_position_path(position)
-        td = link_to 'Destroy', position, data: { confirm: 'Are you sure?' }, method: :delete
+        td
+          = link_to (content_tag(:i, "", class: 'far fa-eye fa-xs ') + ""), position, class: "btn btn-light btn-action", data: {toggle: "tooltip", placement: "left"}, "title"=>"Show"
+          = link_to (content_tag(:i, "", class: 'fas fa-pencil-alt fa-xs') + ""), edit_position_path(position), class: "btn btn-light btn-action", data: {toggle: "tooltip", placement: "left"}, "title"=>"Edit"
+          = link_to (content_tag(:i, "", class: 'far fa-trash-alt fa-xs') + ""), position, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-light btn-action", data: {toggle: "tooltip", placement: "bottom"}, "title"=>"Delete"
 
 br
 

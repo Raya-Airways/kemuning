@@ -23,7 +23,7 @@ dl.row
 dl.row
   dt.col-md-3 BPMN
   dd.col-md-9
-    - if @task.bpmn.attachment?
+    - if @task.bpmn.attachment
       = render 'viewer-bpmn'
 
 dl.row
