@@ -51,10 +51,11 @@ ActiveRecord::Schema.define(version: 2021_08_18_094455) do
   end
 
   create_table "events", force: :cascade do |t|
+    t.integer "task_id"
     t.string "code"
     t.integer "sequence"
-    t.integer "task_id"
     t.integer "position_id"
+    t.string "owner"
     t.string "title"
     t.text "description"
     t.integer "created_by"

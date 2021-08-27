@@ -1,7 +1,6 @@
 class Position < ApplicationRecord
 
   before_validation  :set_combo_code
-
   belongs_to :parent, class_name: "Position", optional: true
 
   validates :code, :name, presence: true

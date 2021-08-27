@@ -9,7 +9,7 @@
   = f.hidden_field :task_id
 
   .row
-    .col-md-3.mb-3
+    .col-md-1.mb-3
       = f.label :sequence, class: "required"
       = f.number_field :sequence, class: "form-control", required: "required"
 
@@ -18,14 +18,23 @@
       = f.text_field :title, class: "form-control"
 
   .row
-    .col-md-6.mb-3
+    .col-md-3.mb-3
       = f.label :position_id
-      = f.text_field :position_id, class: "form-control"
+      = f.collection_select :position_id, Position.all, :id, :position_description, {selected:  @event.position_id, include_blank: 'Others'}, class: "form-select"
+
+
+    .col-md-1.mb-3
+      br
+      label OR
+
+
+
+
 
   .row
     .col-md-9.mb-3
       = f.label :description
-      = f.text_area :title, class: "form-control", rows: 3
+      = f.text_field :title, class: "form-control"
 
   .row
     .col-md-9.mb-3
@@ -33,4 +42,4 @@
       = f.text_area   :description, class: "form-control trix-10"
 
 
-  .actions = f.submit
+  .actions = f.submit class: "btn btn-primary"
