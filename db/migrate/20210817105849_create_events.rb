@@ -8,6 +8,7 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.string   :owner
       t.string   :title
       t.text     :description
+      t.string   :url
 
       t.integer :created_by
       t.integer :updated_by

@@ -22,24 +22,33 @@
       = f.label :position_id
       = f.collection_select :position_id, Position.all, :id, :position_description, {selected:  @event.position_id, include_blank: 'Others'}, class: "form-select"
 
-
     .col-md-1.mb-3
       br
       label OR
 
-
-
+    .col-md-4.mb-3
+      = f.label :owner
+      = f.text_field :owner, class: "form-control"
 
 
   .row
     .col-md-9.mb-3
       = f.label :description
-      = f.text_field :title, class: "form-control"
+      = f.text_area   :description, class: "form-control trix-10"
 
   .row
-    .col-md-9.mb-3
-      = f.label :steps
-      = f.text_area   :description, class: "form-control trix-10"
+    .col-md-4.mb-3
+      = f.label :document
+      = f.file_field :document, class: "form-control"
+
+    .col-md-4.mb-3
+      - if @event.document.attached?
+        br
+        = link_to @event.document.filename, rails_blob_path(@event.document, disposition: "inline")
+
+
+
+
 
 
   .actions = f.submit class: "btn btn-primary"

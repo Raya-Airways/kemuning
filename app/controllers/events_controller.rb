@@ -6,7 +6,7 @@ class EventsController < ApplicationController
     if params[:task]
       @task = Task.find(params[:task])
       @event.task_id = @task.id
-      @event.sequence = @task.events.exists? ? @task.event.last.sequence + 1 : 1
+      @event.sequence = @task.events.exists? ? @task.events.last.sequence + 1 : 1
     end
   end
 
@@ -49,7 +49,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:code, :sequence, :task_id, :position_id, :title, :description)
+      params.require(:event).permit(:code, :sequence, :task_id, :position_id, :owner, :title, :description, :document)
     end
 
 end
