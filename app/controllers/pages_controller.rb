@@ -8,7 +8,6 @@ class PagesController < ApplicationController
     @documents = ActiveStorage::Attachment.where(name: "document")
   end
 
-
   def dashboard
   end
 

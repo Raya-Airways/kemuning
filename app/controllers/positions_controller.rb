@@ -56,6 +56,22 @@ class PositionsController < ApplicationController
     end
   end
 
+
+
+  #  ----   PDF Reports ----
+
+  def publish_tasks
+    @positions = Position.order(combo_code: :asc).includes(:tasks).where.not(tasks: {id: nil})
+    respond_to do |format|
+       format.pdf do
+         pdf = PublishTasks.new(@positions, view_context)
+         send_data pdf.render, filename: "Business_Process-#{Date.today}",
+                               type: "application/pdf",
+                               disposition: "inline"
+       end
+     end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_position

@@ -57,18 +57,7 @@ class TasksController < ApplicationController
     end
   end
 
-  #  ----   PDF Reports ----
 
-  def publish_tasks
-    respond_to do |format|
-       format.pdf do
-         pdf = PublishTasks.new(@tasks, view_context)
-         send_data pdf.render, filename: "Module_Specification-#{@course.course_code}-#{Date.today}",
-                               type: "application/pdf",
-                               disposition: "inline"
-       end
-     end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
