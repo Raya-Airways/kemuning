@@ -20,4 +20,4 @@ none
 
 Staff post:string reports_to:integer rank:string grade:string department:string units:integer
 
-RAILS_ENV=staging bundle exec rake db:seed:dump EXCLUDE=updated_by,updated_at,created_by,created_at,(ActionText::RichText[])
+RAILS_ENV=staging bundle exec rake db:seed:dump EXCLUDE=updated_by,updated_at,created_by,created_at,(ActionText::RichText[:body])
