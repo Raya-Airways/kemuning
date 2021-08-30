@@ -4,7 +4,8 @@ class CreateTasks < ActiveRecord::Migration[6.1]
       t.string  :code
       t.string  :title
       t.string  :security
-      t.string  :position
+      t.integer :position_id
+      t.string  :owner
       t.string  :description
 
       t.integer :created_by

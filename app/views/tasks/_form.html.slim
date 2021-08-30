@@ -11,14 +11,24 @@
       = f.text_field :title, class: "form-control"
 
   .row
-    .col-md-5.mb-3
-      = f.label :position_id
-      = f.text_field :position, class: "form-control"
+    .col-md-4.mb-3
+      = f.label :position_id, "Assigned Owners"
+      = f.collection_select  :position_id, Position.order(:combo_code), :id, :position_description, {include_blank: true}, class: "form-select"
+
+    .col-md-1.mb-3
+      br
+      | AND/OR
+    .col-md-4.mb-3
+      = f.label :owner, "Initiators"
+      = f.text_field :owner, class: "form-control"
+
+      .form-text#ownerhelp Add initiator if not same as process owner.
+
 
   .row
     .col-md-9.mb-3
       = f.label :description
-      = f.text_area :description, class: "form-control", rows: 3
+      = f.text_area :description, class: "form-control trix-10"
 
   .row
     .col-md-9.mb-3

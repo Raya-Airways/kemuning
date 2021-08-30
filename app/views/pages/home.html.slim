@@ -1,1 +1,25 @@
-
+.row
+  .card-group
+    .col-sm-6
+      .card
+        .card-body
+          h5.card-title Download Business Process Document
+          p.card-text We'll generate a new document based on the latest information, click to download now.
+          <a href="#" class="btn btn-primary">Download PDF</a>
+.row
+  .card-group
+    .col-sm-2
+      .card
+        .card-body
+          h1.card-title= Position.all.count
+          p.card-text Positions registered
+    .col-sm-2
+      .card
+        .card-body
+          h1.card-title= Task.all.count
+          p.card-text Processes registered
+    .col-sm-2
+      .card
+        .card-body
+          h1.card-title= @document_count
+          p.card-text Documents registered

@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_08_18_094455) do
     t.string "owner"
     t.string "title"
     t.text "description"
+    t.string "url"
     t.integer "created_by"
     t.integer "updated_by"
     t.datetime "created_at", precision: 6, null: false
@@ -80,7 +81,8 @@ ActiveRecord::Schema.define(version: 2021_08_18_094455) do
     t.string "code"
     t.string "title"
     t.string "security"
-    t.string "position"
+    t.integer "position_id"
+    t.string "owner"
     t.string "description"
     t.integer "created_by"
     t.integer "updated_by"

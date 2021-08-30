@@ -4,14 +4,15 @@ table.table
     tr
       th Filename
       th Association
+      th Code
       th Description
-      th
 
   tbody
     - @documents.each do |document|
       tr
         td = link_to document.blob.filename, rails_blob_path(document, disposition: "inline")
         td = document.record_type
-        td = document.record.description
+        td = document.record.code
+        td = document.record.title
 
 br

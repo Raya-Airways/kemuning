@@ -20,8 +20,14 @@ body {
   .container-fluid.main {
     padding: 40px 5%;
   }
-
   .table {font-size: smaller;}
+
+
+  .trix-5 {min-height: 5rem; overflow-y: auto;}
+  .trix-10 {min-height: 10rem; overflow-y: auto;}
+  .trix-15 {min-height: 15rem; overflow-y: auto;}
+  .trix-20 {min-height: 20rem; overflow-y: auto;}
+  .trix-25 {min-height: 25rem; overflow-y: auto;}
 }
 
 .btn-action, a:link.btn-action, a:visited.btn-action {margin-top: 0; padding:0 5px; border: 0; }
@@ -52,11 +58,3 @@ form label {
 .needs-discussion:not(.djs-connection) .djs-visual > :nth-child(1) {
   stroke: rgba(66, 180, 21, 0.7) !important; /* color elements as red */
 }
-
-
-
-.trix-5 {min-height: 5rem; overflow-y: auto;}
-.trix-10 {min-height: 10rem; overflow-y: auto;}
-.trix-15 {min-height: 15rem; overflow-y: auto;}
-.trix-20 {min-height: 20rem; overflow-y: auto;}
-.trix-25 {min-height: 25rem; overflow-y: auto;}

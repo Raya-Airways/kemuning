@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   def home
+    @document_count = ActiveStorage::Attachment.where(name: "document").count
   end
 
   def documents
