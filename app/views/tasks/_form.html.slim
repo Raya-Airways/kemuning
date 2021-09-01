@@ -40,21 +40,29 @@
       = f.label :bpmn, "Upload BPMN Diagram"
       = f.file_field  :bpmn, class: "form-control"
 
-
-
   .row
     .col-md-9.mb-3
-      = f.label :findings
-      = f.rich_text_area  :findings, class: "form-control trix-5"
-
-  .row
-    .col-md-9.mb-3
-      = f.label :risks
-      = f.rich_text_area  :risks, class: "form-control trix-5"
-
-  .row
-    .col-md-9.mb-3
-      = f.label :recommendations
-      = f.rich_text_area  :recommendations, class: "form-control trix-5"
+      = f.label :bpmn, "Upload BPMN Diagram in PNG format"
+      = f.file_field  :png_bpmn, class: "form-control"
+      - if @task.png_bpmn.attached?
+        br
+        = link_to @task.png_bpmn.filename, rails_blob_path(@task.png_bpmn, disposition: "inline")
+        | |
+        = link_to "Delete", delete_attachment_task_path(id: @task, attachment: "png_bpmn")
 
   .actions = f.submit class: "btn btn-primary"
+
+//  .row
+//    .col-md-9.mb-3
+//      = f.label :findings
+//      = f.rich_text_area  :findings, class: "form-control trix-5"
+//
+//  .row
+//    .col-md-9.mb-3
+//      = f.label :risks
+//      = f.rich_text_area  :risks, class: "form-control trix-5"
+//
+//      .row
+//    .col-md-9.mb-3
+//      = f.label :recommendations
+//      = f.rich_text_area  :recommendations, class: "form-control trix-5"

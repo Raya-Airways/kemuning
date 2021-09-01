@@ -25,6 +25,15 @@ dl.row
     - if @task.bpmn.attachment
       = render 'viewer-bpmn'
 
+
+dl.row
+  dt.col-md-2 BPMN PNG
+  dd.col-md-10
+    = @task.png_bpmn.filename
+    - if @task.png_bpmn.attachment
+      = image_tag(url_for(@task.png_bpmn), width: "100%")
+
+
 dl.row
   dt.col-md-2
     | Event Description <br>

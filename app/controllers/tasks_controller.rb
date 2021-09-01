@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_task, only: %i[ show edit update destroy delete_attachment ]
 
   # GET /tasks or /tasks.json
   def index
@@ -57,6 +57,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def delete_attachment
+    eval("@task.#{params[:attachment]}.purge")
+    redirect_to edit_task_path(@task)
+  end
+
 
 
   private
@@ -67,6 +72,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:code, :title, :position_id, :owner, :notes, :description, :bpmn, :dmn, :findings, :risks, :recommendations)
+      params.require(:task).permit(:code, :title, :position_id, :owner, :notes, :description, :bpmn, :png_bpmn, :dmn, :findings, :risks, :recommendations)
     end
 end
