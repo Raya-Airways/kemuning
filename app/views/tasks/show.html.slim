@@ -33,7 +33,9 @@ dl.row
     - if @task.png_bpmn.attachment
       = url_for(@task.png_bpmn)
       br
-      = image_tag((@task.png_bpmn), width: "100%")
+      | #= image_tag((@task.png_bpmn), width: "100%") ~ this works in dev
+      br
+      = image_tag(ActiveStorage::Blob.service.send(:path_for, @task.png_bpmn.key))
 
 
 
