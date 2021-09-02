@@ -33,7 +33,7 @@ dl.row
     - if @task.png_bpmn.attachment
       = url_for(@task.png_bpmn)
       br
-      = image_tag(url_for(@task.png_bpmn), width: "100%")
+      = image_tag((@task.png_bpmn), width: "100%")
 
 
 
