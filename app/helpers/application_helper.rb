@@ -9,7 +9,7 @@ module ApplicationHelper
     dataset = {toggle: "tooltip", placement: "left"}
     case
     when method == "show"
-      link = link_to (content_tag(:i, "", class: 'far fa-eye fa-xs') + ""), send("#{controller}_path", {id: record}), class: button_class, data: dataset , "title"=> title
+      link = link_to (content_tag(:i, "", class: 'fas fa-eye fa-xs') + ""), send("#{controller}_path", {id: record}), class: button_class, data: dataset , "title"=> title
     when method == "edit"
       link = link_to (content_tag(:i, "", class: 'fas fa-pencil-alt') + ""), send("edit_#{controller}_path", {id: record}), class: button_class, data: dataset, "title"=> title
     when method == "delete"
