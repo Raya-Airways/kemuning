@@ -16,7 +16,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  #config.relative_url_root = "/kemuning"
+  config.relative_url_root = "/kemuning"
 
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
@@ -43,6 +43,7 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
+  config.active_storage.routes_prefix = '/storage'
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil

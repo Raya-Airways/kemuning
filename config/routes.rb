@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
     match '/documents',    to: 'pages#documents',    via: 'get'
     root to: "pages#home"
+
   end
 end
