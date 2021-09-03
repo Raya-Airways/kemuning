@@ -38,22 +38,3 @@ Event.create!([
   {id: 11, task_id: 2, code: "10300.001.02", sequence: 2, position_id: 19, owner: "", title: "Develop Pricing Table ", description: "Based on experience develop a pricing template that is suitable for use ", url: nil},
   {id: 12, task_id: 2, code: "10300.001.03", sequence: 3, position_id: 19, owner: "", title: "Publish for use", description: "Pricing publishes the pricing template for use.", url: nil}
 ])
-ActiveStorage::Blob.create!([
-  {id: 1, key: "2vpq3qhblmkk5abzo8suwn1ge0i9", filename: "1. 210521 MOR and Clearance Note v2.pdf", content_type: "application/pdf", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 178595, checksum: "ENN+ubOR7fhBuCpZOf2yog=="},
-  {id: 2, key: "69975kh5tkej7k6u2mogj9ejy7qr", filename: "Clearance note legal.pdf", content_type: "application/pdf", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 656900, checksum: "HzaUx5zTn6+v9ZW90ryiog=="}
-])
-ActiveStorage::Attachment.create!([
-  {id: 1, name: "document", record_type: "Event", record_id: 3, blob_id: 1},
-  {id: 2, name: "document", record_type: "Event", record_id: 6, blob_id: 2}
-])
-
-ActionText::RichText.create!([
-  {id: 1, name: "notes", record_type: "Task", record_id: 1},
-  {id: 2, name: "recommendations", record_type: "Task", record_id: 1},
-  {id: 3, name: "risks", record_type: "Task", record_id: 1},
-  {id: 4, name: "findings", record_type: "Task", record_id: 1},
-  {id: 5, name: "notes", record_type: "Task", record_id: 2},
-  {id: 6, name: "recommendations", record_type: "Task", record_id: 2},
-  {id: 7, name: "risks", record_type: "Task", record_id: 2},
-  {id: 8, name: "findings", record_type: "Task", record_id: 2}
-])
