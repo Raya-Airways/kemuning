@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  scope '/kemuning' do
     resources :events
     resources :tasks do
       member do
@@ -15,6 +14,4 @@ Rails.application.routes.draw do
 
     match '/documents',    to: 'pages#documents',    via: 'get'
     root to: "pages#home"
-
-  end
 end
