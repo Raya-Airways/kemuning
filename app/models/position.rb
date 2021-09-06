@@ -3,6 +3,7 @@ class Position < ApplicationRecord
   before_validation  :set_combo_code
   belongs_to :parent, class_name: "Position", optional: true
   has_many   :tasks
+  has_many   :events
 
   validates :code, :name, presence: true
   validates :combo_code, uniqueness: true

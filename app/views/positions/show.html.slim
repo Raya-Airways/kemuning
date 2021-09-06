@@ -1,13 +1,20 @@
-p
-  strong Code:
-  = @position.combo_code
-p
-  strong Name:
-  = @position.name
+dl.row
+  dt.col-md-2 Staff Code
+  dd.col-md-10= @position.combo_code
 
-p
-  strong Mission:
-  = @position.mission
+dl.row
+  dt.col-md-2 Position
+  dd.col-md-10= @position.name
+
+dl.row
+  dt.col-md-2 Mission
+  dd.col-md-10= @position.mission
+
+dl.row
+  dt.col-md-2 Ownerships
+  dd.col-md-10= render 'ownerships'
+
+
 
 => link_to 'Edit', edit_position_path(@position)
 '|
