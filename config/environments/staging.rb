@@ -16,7 +16,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  #config.relative_url_root = "/kemuning"
+  config.relative_url_root = "/kemuning"
 
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
