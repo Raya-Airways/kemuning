@@ -15,7 +15,8 @@ manager
 owner
 none
 
-
+kemuning_staging.sql
+scp devraya@staging:/home/devraya/kemuning_staging.sql db/kemuning.sql
 
 
 Staff post:string reports_to:integer rank:string grade:string department:string units:integer

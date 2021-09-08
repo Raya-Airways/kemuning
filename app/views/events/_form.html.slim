@@ -20,7 +20,8 @@
   .row
     .col-md-3.mb-3
       = f.label :position_id
-      = f.collection_select :position_id, Position.all, :id, :position_description, {selected:  @event.position_id, include_blank: 'Others'}, class: "form-select"
+    
+      = f.text_field :position_desc, data: {autocomplete_source: Position.order(:combo_code).map(&:position_description)}, class: "form-control"
 
     .col-md-1.mb-3
       br

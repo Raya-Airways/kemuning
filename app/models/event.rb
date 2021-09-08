@@ -12,5 +12,14 @@ class Event < ApplicationRecord
     self.code = "#{task.code}" + "." + "#{'%02i' % sequence}"
   end
 
+  def position_desc
+    position.try(:desc)
+  end
+
+  def position_desc=(desc)
+    code = desc.split(' ')[0]
+    self.position = Position.find_by_combo_code(code) if code.present?
+  end
+
 
 end
