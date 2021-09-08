@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       collection do
         get :publish_tasks
       end
+      member do
+        get :publish_task
+      end
     end
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

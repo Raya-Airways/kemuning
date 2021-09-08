@@ -1,5 +1,5 @@
 class PositionsController < ApplicationController
-  before_action :set_position, only: %i[ show edit update destroy ]
+  before_action :set_position, only: %i[ show edit update destroy publish_task ]
 
   # GET /positions or /positions.json
   def index
@@ -65,6 +65,17 @@ class PositionsController < ApplicationController
     respond_to do |format|
        format.pdf do
          pdf = PublishTasks.new(@positions, view_context)
+         send_data pdf.render, filename: "Business_Process-#{Date.today}",
+                               type: "application/pdf",
+                               disposition: "inline"
+       end
+     end
+  end
+
+  def publish_task
+    respond_to do |format|
+       format.pdf do
+         pdf = PublishTask.new(@position, view_context)
          send_data pdf.render, filename: "Business_Process-#{Date.today}",
                                type: "application/pdf",
                                disposition: "inline"

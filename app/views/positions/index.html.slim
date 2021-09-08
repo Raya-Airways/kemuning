@@ -6,6 +6,7 @@ table.table
       th Name
       th.center Process Owner
       th.center Event Owner
+      td Link
       th Actions
 
   tbody
@@ -15,6 +16,7 @@ table.table
         td = position.name
         td.center = position.tasks.exists? ? ('<span class="badge bg-info">' + "#{position.tasks.count}" + '</span>').html_safe : ""
         td.center = position.events.exists? ? ('<span class="badge bg-info">' + "#{position.events.count}" + '</span>').html_safe : ""
+        td= link_to "PDF", publish_task_position_path(position, format: "pdf")
         td
           = action_link("show", position)
           = action_link("edit", position)

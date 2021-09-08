@@ -11,15 +11,15 @@ class PublishTask < Prawn::Document
   end
 
   def main_content
-    position_code = staff.combo_code
-    staff_name = staff.name
+    position_code = @staff.combo_code
+    staff_name = @staff.name
     text "#{position_code}   #{staff_name}", :color => "2F5496", :size => 20
     move_down 5
     text "Mission Statement", :color => "2F5496", :size => 16
     move_down 5
-    text "#{staff.mission}"
+    text "#{@staff.mission}"
     move_down 20
-    task_list(staff)
+    task_list(@staff)
     move_down 20
     start_new_page
   end
