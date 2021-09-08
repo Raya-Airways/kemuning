@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   belongs_to :task
   belongs_to :position, optional: true
 
-  validates :sequence, :task_id, presence: true
+  validates :sequence, :title, :task_id, presence: true
 
   has_one_attached :document
 
@@ -13,7 +13,7 @@ class Event < ApplicationRecord
   end
 
   def position_desc
-    position.try(:desc)
+    position.try(:position_description)
   end
 
   def position_desc=(desc)

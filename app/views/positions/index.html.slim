@@ -4,22 +4,21 @@ table.table
     tr
       th Code
       th Name
-      th Mission
-      th
-      th
-      th
+      th.center Process Owner
+      th.center Event Owner
+      th Actions
 
   tbody
     - @positions.each do |position|
       tr
         td = position.combo_code
         td = position.name
-        td = position.mission.truncate_words(7)
+        td.center = position.tasks.exists? ? ('<span class="badge bg-info">' + "#{position.tasks.count}" + '</span>').html_safe : ""
+        td.center = position.events.exists? ? ('<span class="badge bg-info">' + "#{position.events.count}" + '</span>').html_safe : ""
         td
-          = link_to (content_tag(:i, "", class: 'far fa-eye fa-xs ') + ""), position, class: "btn btn-light btn-action", data: {toggle: "tooltip", placement: "left"}, "title"=>"Show"
-          = link_to (content_tag(:i, "", class: 'fas fa-pencil-alt fa-xs') + ""), edit_position_path(position), class: "btn btn-light btn-action", data: {toggle: "tooltip", placement: "left"}, "title"=>"Edit"
-          = link_to (content_tag(:i, "", class: 'far fa-trash-alt fa-xs') + ""), position, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-light btn-action", data: {toggle: "tooltip", placement: "bottom"}, "title"=>"Delete"
-
+          = action_link("show", position)
+          = action_link("edit", position)
+          = action_link("delete", position)
 br
 
 = link_to 'New Position', new_position_path

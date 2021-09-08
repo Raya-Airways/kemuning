@@ -8,6 +8,7 @@ $raya-red: #F5191B;
 
 body {
   background-color: #fff;
+  .center {text-align: center;}
 
   .navbar {
       background-color: $raya-blue !important;
@@ -27,7 +28,9 @@ body {
 
   //-- Show Stuff --
 
-  .table {font-size: smaller;}
+  .table {
+    font-size: smaller;
+  }
   .tab-pane {padding: 1em;}
 
  //form stuff

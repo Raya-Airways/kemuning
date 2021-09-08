@@ -14,13 +14,13 @@
       = f.number_field :sequence, class: "form-control", required: "required"
 
     .col-md-6.mb-3
-      = f.label :title
-      = f.text_field :title, class: "form-control"
+      = f.label :title, class: "required"
+      = f.text_field :title, class: "form-control", required: "required"
 
   .row
-    .col-md-3.mb-3
+    .col-md-4.mb-3
       = f.label :position_id
-    
+
       = f.text_field :position_desc, data: {autocomplete_source: Position.order(:combo_code).map(&:position_description)}, class: "form-control"
 
     .col-md-1.mb-3
