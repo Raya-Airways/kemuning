@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :tasks do
       member do
         get :delete_attachment
+        get :publish
       end
     end
     resources :positions do

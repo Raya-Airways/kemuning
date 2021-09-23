@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ show edit update destroy delete_attachment ]
+  before_action :set_task, only: %i[ show edit update destroy delete_attachment publish ]
 
   # GET /tasks or /tasks.json
   def index
@@ -46,6 +46,17 @@ class TasksController < ApplicationController
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def publish
+    respond_to do |format|
+       format.pdf do
+         pdf = Publish.new(@task, view_context)
+         send_data pdf.render, filename: "Business_Process-#{@task.code}-#{Date.today}",
+                               type: "application/pdf",
+                               disposition: "inline"
+       end
+     end
   end
 
   # DELETE /tasks/1 or /tasks/1.json
