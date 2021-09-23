@@ -62,15 +62,6 @@ class Publish < Prawn::Document
     rows
   end
 
-  def document_from_url(events)
-    arr = events.pluck(:file_url).compact!
-    arr = arr.map {|s| s.gsub(s, (s.split("/").last.split("?").first).gsub("%20", " "))}
-    arr = arr.uniq!
-    arr.map do | doc |
-      text "  •   #{doc}", :size => 10
-    end
-  end
-
   def document_list(events)
     move_down 10
     text "Documents"
@@ -79,6 +70,15 @@ class Publish < Prawn::Document
     documents = ActiveStorage::Attachment.where(name: "document").where(record_id: events)
     documents.map do | document |
       text "  •   #{document.filename}", :size => 10
+    end
+  end
+
+  def document_from_url(events)
+    arr = events.pluck(:file_url).compact!
+    arr = arr.map {|s| s.gsub(s, (s.split("/").last.split("?").first).gsub("%20", " "))}
+    arr = arr.uniq
+    arr.map do | doc |
+      text "  •   #{doc}", :size => 10
     end
   end
 
