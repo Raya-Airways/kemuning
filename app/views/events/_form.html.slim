@@ -38,6 +38,11 @@
       = f.text_area   :description, class: "form-control trix-10"
 
   .row
+    .col-md-9.mb-3
+      = f.label :file_url, "SharePoint File URL"
+      = f.text_field :file_url, class: "form-control"
+
+  .row
     .col-md-4.mb-3
       = f.label :document
       = f.file_field :document, class: "form-control"

@@ -14,9 +14,7 @@ class Publish < Prawn::Document
 
   def task_list
     events = Event.where(task_id: @task).order(sequence: :asc)
-    move_down 5
     text "#{@task.code} #{@task.title}", :color => "2F5496", :size => 13
-    move_down 5
     text "Subprocess Description"
     move_down 5
     text @task.description, :size => 10
@@ -64,10 +62,20 @@ class Publish < Prawn::Document
     rows
   end
 
+  def document_from_url(events)
+    arr = events.pluck(:file_url).compact!
+    arr = arr.map {|s| s.gsub(s, (s.split("/").last.split("?").first).gsub("%20", " "))}
+    arr = arr.uniq!
+    arr.map do | doc |
+      text "  •   #{doc}", :size => 10
+    end
+  end
+
   def document_list(events)
     move_down 10
     text "Documents"
     move_down 5
+    document_from_url(events)
     documents = ActiveStorage::Attachment.where(name: "document").where(record_id: events)
     documents.map do | document |
       text "  •   #{document.filename}", :size => 10
