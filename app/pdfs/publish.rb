@@ -4,9 +4,7 @@ class Publish < Prawn::Document
     super({top_margin: 50, page_size: 'A4', page_layout: :landscape })
     @task = task
     @view = view
-
     text "Business Process", :align => :right, :size => 14, :style => :bold
-    move_down 20
     main_content
   end
 
@@ -15,7 +13,7 @@ class Publish < Prawn::Document
   end
 
   def task_list
-    events = Event.where(task_id: @task)
+    events = Event.where(task_id: @task).order(sequence: :asc)
     move_down 5
     text "#{@task.code} #{@task.title}", :color => "2F5496", :size => 13
     move_down 5
