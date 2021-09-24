@@ -1,6 +1,8 @@
 dl.row
   dt.col-md-2 Process Code
-  dd.col-md-10= @task.code
+  dd.col-md-8= @task.code
+  dd.col-md-2
+    = link_to (content_tag(:i, "", class: 'fas fa-file-pdf fa-lg') + " Download as PDF"), publish_task_path(@task, format: "pdf"), class: "btn btn-outline-dark", data: {toggle: "tooltip", placement: "left"}, "title"=> "Download as PDF"
 
 dl.row
   dt.col-md-2 Title
