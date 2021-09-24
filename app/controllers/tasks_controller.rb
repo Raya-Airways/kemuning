@@ -52,7 +52,7 @@ class TasksController < ApplicationController
     respond_to do |format|
        format.pdf do
          pdf = Publish.new(@task, view_context)
-         send_data pdf.render, filename: "Business_Process-#{@task.code}-#{Date.today}",
+         send_data pdf.render, filename: "RBPA_#{(@task.code).gsub('.','-')}_#{(@task.title.tr(" ", "_"))}-#{@task.updated_at.strftime("%Y%m%d")}",
                                type: "application/pdf",
                                disposition: "inline"
        end
