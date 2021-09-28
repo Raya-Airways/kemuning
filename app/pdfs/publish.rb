@@ -74,11 +74,14 @@ class Publish < Prawn::Document
   end
 
   def document_from_url(events)
-    arr = events.pluck(:file_url).compact!
-    arr = arr.map {|s| s.gsub(s, (s.split("/").last.split("?").first).gsub("%20", " "))}
-    arr = arr.uniq
-    arr.map do | doc |
-      text "  •   #{doc}", :size => 10
+    arr = events.pluck(:file_url)
+    arr = arr.reject(&:empty?)
+    arr.present?
+      arr = arr.map {|s| s.gsub(s, (s.split("/").last.split("?").first).gsub("%20", " "))}
+      arr = arr.uniq
+      arr.map do | doc |
+        text "  •   #{doc}", :size => 10
+      end
     end
   end
 
