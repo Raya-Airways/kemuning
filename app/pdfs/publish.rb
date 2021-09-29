@@ -78,7 +78,7 @@ class Publish < Prawn::Document
     arr = arr.compact
     arr = arr.reject(&:empty?) unless arr.nil?
     if arr.present?
-      arr = arr.map {|s| s.gsub(s, (s.split("/").last.split("?").first).gsub("%20", " "))}
+      arr = arr.map {|s| s.gsub(s, (s.split("/").last.split("?").first).gsub("%20", " ").gsub("%26", "&"))}
       arr = arr.uniq
       arr.map do | doc |
         text "  •   #{doc}", :size => 10

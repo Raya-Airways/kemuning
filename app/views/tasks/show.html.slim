@@ -50,7 +50,7 @@ hr
 dl.row
   dt.col-md-2 Documents
   dd.col-md-10
-    - unless @task.events
+    - if @task.events
       - get_document_list(@task).each do | d |
         = link_to d[0], d[1]
 
