@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_task, only: %i[ show edit update destroy delete_attachment publish ]
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.order(code: :asc)
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -48,6 +48,17 @@ class TasksController < ApplicationController
     end
   end
 
+  def publish
+    respond_to do |format|
+       format.pdf do
+         pdf = Publish.new(@task, view_context)
+         send_data pdf.render, filename: "RBPA_#{(@task.code).gsub('.','-')}_#{(@task.title.tr(" ", "_"))}-#{@task.updated_at.strftime("%Y%m%d")}",
+                               type: "application/pdf",
+                               disposition: "inline"
+       end
+     end
+  end
+
   # DELETE /tasks/1 or /tasks/1.json
   def destroy
     @task.destroy
@@ -57,6 +68,13 @@ class TasksController < ApplicationController
     end
   end
 
+  def delete_attachment
+    eval("@task.#{params[:attachment]}.purge")
+    redirect_to edit_task_path(@task)
+  end
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
@@ -65,6 +83,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:code, :title, :position, :notes, :description, :bpmn, :dmn, :findings, :risks, :recommendations)
+      params.require(:task).permit(:code, :title, :position_id, :owner, :notes, :description, :bpmn, :png_bpmn, :dmn, :findings, :risks, :recommendations)
     end
 end

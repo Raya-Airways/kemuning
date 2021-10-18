@@ -1,0 +1,29 @@
+dl.row
+  dt.col-md-2 Event Code
+  dd.col-md-10= @event.code
+
+dl.row
+  dt.col-md-2 Sequence
+  dd.col-md-10= @event.sequence
+
+dl.row
+  dt.col-md-2 Title
+  dd.col-md-10= @event.title
+
+dl.row
+  dt.col-md-2 Owner
+  dd.col-md-10= @event.position ?  @event.position.position_description : @event.owner
+
+dl.row
+  dt.col-md-2 Part of Task
+  dd.col-md-10 #{@event.task.code} : #{@event.task.title}
+
+dl.row
+  dt.col-md-2 Description
+  dd.col-md-10= @event.description
+
+dl.row
+  dt.col-md-2 File URL
+  dd.col-md-10= @event.file_url
+  dt.col-md-2
+  dd.col-md-10= filename(@event.file_url)

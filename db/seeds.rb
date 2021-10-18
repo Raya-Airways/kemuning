@@ -1,31 +1,40 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
-Task.create!([
-  {id: 1, code: "17000.001", title: "Request Legal Review", security: nil, position: "1.X", description: "HOD request legal department assistance to review obligatory letters including but not limited to NDA, LOA, LOU and agreements.", created_by: nil, updated_by: nil, created_at: "2021-08-24 09:15:58", updated_at: "2021-08-27 05:22:02"}
-])
 Position.create!([
-  {id: 1, code: 1, parent_id: nil, name: "GMD", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 03:41:42", updated_at: "2021-08-24 04:22:07"},
-  {id: 2, code: 0, parent_id: 1, name: "Strategy & Project Management", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:05:45", updated_at: "2021-08-24 04:23:54"},
-  {id: 3, code: 1, parent_id: 1, name: "Business Development", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 03:58:44", updated_at: "2021-08-24 04:23:14"},
-  {id: 4, code: 2, parent_id: 1, name: "Operations", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:00:10", updated_at: "2021-08-24 04:23:32"},
-  {id: 5, code: 3, parent_id: 1, name: "Quality Assurance", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:01:32", updated_at: "2021-08-24 04:23:43"},
-  {id: 6, code: 4, parent_id: 1, name: "Safety Management Systems", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:01:51", updated_at: "2021-08-24 04:24:26"},
-  {id: 7, code: 5, parent_id: 1, name: "Internal Audit", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:02:05", updated_at: "2021-08-24 04:24:59"},
-  {id: 8, code: 6, parent_id: 1, name: "Risk Management", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:03:39", updated_at: "2021-08-24 04:25:12"},
-  {id: 9, code: 7, parent_id: 1, name: "Legal & Secretarial Services", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:03:21", updated_at: "2021-08-24 04:25:20"},
-  {id: 10,code: 8, parent_id: 1, name: "Finance", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:04:00", updated_at: "2021-08-24 04:24:47"},
-  {id: 11,code: 9, parent_id: 1, name: "People Management & Corporate Services", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:04:22", updated_at: "2021-08-24 04:24:37"},
-  {id: 12,code: 10, parent_id: 1, name: "Digital", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:04:42", updated_at: "2021-08-24 04:24:06"},
-  {id: 13, code: 1, parent_id: 4, name: "CAMO", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:27:16", updated_at: "2021-08-24 04:27:16"},
-  {id: 14, code: 2, parent_id: 4, name: "AMO", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:38:13", updated_at: "2021-08-24 04:38:13"},
-  {id: 15, code: 3, parent_id: 4, name: "Flight Operations", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:38:36", updated_at: "2021-08-24 04:38:36"},
-  {id: 16, code: 4, parent_id: 4, name: "Airline Operations", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:39:06", updated_at: "2021-08-24 04:39:06"},
-  {id: 17, code: 5, parent_id: 4, name: "Ground Operations", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:39:23", updated_at: "2021-08-24 04:39:23"},
-  {id: 18, code: 6, parent_id: 4, name: "Aviation Security", mission: "", created_by: nil, updated_by: nil, created_at: "2021-08-24 04:39:49", updated_at: "2021-08-24 05:01:32"}
+  {id: 1, code: 1, combo_code: "1", parent_id: nil, name: "GMD", mission: ""},
+  {id: 2, code: 0, combo_code: "1.0", parent_id: 1, name: "Strategy & Project Management", mission: ""},
+  {id: 3, code: 1, combo_code: "1.1", parent_id: 1, name: "Business Development", mission: ""},
+  {id: 4, code: 2, combo_code: "1.2", parent_id: 1, name: "Operations", mission: ""},
+  {id: 5, code: 3, combo_code: "1.3", parent_id: 1, name: "Quality Assurance", mission: ""},
+  {id: 6, code: 4, combo_code: "1.4", parent_id: 1, name: "Safety Management Systems", mission: ""},
+  {id: 7, code: 5, combo_code: "1.5", parent_id: 1, name: "Internal Audit", mission: ""},
+  {id: 8, code: 6, combo_code: "1.6", parent_id: 1, name: "Risk Management", mission: ""},
+  {id: 9, code: 7, combo_code: "1.7", parent_id: 1, name: "Legal & Secretarial Services", mission: ""},
+  {id: 10, code: 8, combo_code: "1.8", parent_id: 1, name: "Finance", mission: ""},
+  {id: 11, code: 9, combo_code: "1.9", parent_id: 1, name: "People Management & Corporate Services", mission: ""},
+  {id: 12, code: 10, combo_code: "1.10", parent_id: 1, name: "Digital", mission: ""},
+  {id: 13, code: 1, combo_code: "1.2.1", parent_id: 4, name: "CAMO", mission: ""},
+  {id: 14, code: 2, combo_code: "1.2.2", parent_id: 4, name: "AMO", mission: ""},
+  {id: 15, code: 3, combo_code: "1.2.3", parent_id: 4, name: "Flight Operations", mission: ""},
+  {id: 16, code: 4, combo_code: "1.2.4", parent_id: 4, name: "Airline Operations", mission: ""},
+  {id: 17, code: 5, combo_code: "1.2.5", parent_id: 4, name: "Ground Operations", mission: ""},
+  {id: 18, code: 6, combo_code: "1.2.6", parent_id: 4, name: "Aviation Security", mission: ""},
+  {id: 19, code: 3, combo_code: "1.0.3", parent_id: 2, name: "Pricing", mission: "The Pricing and Performance Dept develops a pricing mechanism for publishing and updating the price and provides ad-hoc pricing to the  Business Development unit. This department also maintains the master list of Aircraft Charter Agreements and provides pricing and renewal  information on request."}
+])
+Task.create!([
+  {id: 1, code: "17000.001", title: "Process Memorandum of Request", security: nil, position_id: 9, owner: "1.X", description: "Initiate memorandum of request for in house legal review"},
+  {id: 2, code: "10300.001", title: "Develop Pricing Template ", security: nil, position_id: 19, owner: "1.0.3", description: "Understand resource requirements for each BU. Receive the resource pricing inputs from various departments and develop a profitable \r\npricing mechanism with thresholds and buffers for use by the Business Development Unit. \r\n"}
+])
+Event.create!([
+  {id: 1, task_id: 1, code: "17000.001.01", sequence: 1, position_id: nil, owner: "Counter Party", title: "Counter Party Initiates", description: "The counter party contacts the associated HOD regarding contract expiry.", url: nil},
+  {id: 2, task_id: 1, code: "17000.001.01", sequence: 1, position_id: nil, owner: "Timer", title: "Contract Expiry", description: "Contract expiry is noted by the relevant HOD, and self initiated", url: nil},
+  {id: 3, task_id: 1, code: "17000.001.02", sequence: 2, position_id: nil, owner: "HOD", title: "HOD to fill MOR", description: "HOD to fill Memorandum of Request and submit to Legal", url: nil},
+  {id: 4, task_id: 1, code: "17000.001.03", sequence: 3, position_id: 9, owner: "", title: "Vet & Discuss", description: "Legal to vet and call for discussion", url: nil},
+  {id: 5, task_id: 1, code: "17000.001.04", sequence: 4, position_id: 9, owner: "", title: "Approval", description: "Vetting complete and new agreement approved", url: nil},
+  {id: 6, task_id: 1, code: "17000.001.05", sequence: 5, position_id: 9, owner: "", title: "Issue Clearance Note", description: "Legal will fill and complete the Clearance Note and forward with original contract and MOR set to GMD for execution", url: nil},
+  {id: 7, task_id: 1, code: "17000.001.06", sequence: 6, position_id: 1, owner: "", title: "Contract Execution", description: "GMD receives and executes contact execution as per legal advise, and returns to contract owner for stamping arrangements", url: nil},
+  {id: 8, task_id: 1, code: "17000.001.07", sequence: 7, position_id: nil, owner: "HOD", title: "Arrange Stamping", description: "Relevant HOD receives executed contract from GMD, and makes arrangements for stamping with counter party.\r\nOn completion, HOD returns the stamped contract to legal for filing.", url: nil},
+  {id: 9, task_id: 1, code: "17000.001.08", sequence: 8, position_id: 9, owner: "", title: "Filing", description: "Legal receives stamped contract and files appropriately in contract file.", url: nil},
+  {id: 10, task_id: 2, code: "10300.001.01", sequence: 1, position_id: 19, owner: "", title: "Gather Inputs ", description: "Pricing gathers fuel price (finance) and fuel burn rates (operations) ", url: nil},
+  {id: 11, task_id: 2, code: "10300.001.02", sequence: 2, position_id: 19, owner: "", title: "Develop Pricing Table ", description: "Based on experience develop a pricing template that is suitable for use ", url: nil},
+  {id: 12, task_id: 2, code: "10300.001.03", sequence: 3, position_id: 19, owner: "", title: "Publish for use", description: "Pricing publishes the pricing template for use.", url: nil}
 ])

@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@popperjs/core": "^2.9.3",
     "@rails/actioncable": "^6.0.0",
     "@rails/actiontext": "^6.1.4",
@@ -12,6 +13,7 @@
     "bootstrap": "^5.1.0",
     "bpmn-js": "^8.7.1",
     "jquery": "^3.6.0",
+    "jquery-ui-dist": "^1.12.1",
     "orgchart": "^3.1.1",
     "trix": "^1.2.0",
     "turbolinks": "^5.2.0",

@@ -1,4 +1,4 @@
-p.lead Listing tasks
+p.lead Listing Processes
 
 table.table
   thead
@@ -15,6 +15,7 @@ table.table
         td = task.title
         td = task.description.truncate_words(9)
         td
+          = action_link("pdf", task, "publish")
           = action_link("show", task)
           = action_link("edit", task)
           = action_link("delete", task)

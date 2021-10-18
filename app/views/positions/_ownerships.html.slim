@@ -1,0 +1,22 @@
+nav
+  .nav.nav-tabs#nav-tab[role="tablist"]
+    button.nav-link.active#nav-home-tab[data-bs-toggle="tab" data-bs-target="#nav-tasks" type="button" role="tab" aria-controls="nav-tasks" aria-selected="true"] Owned Processes
+    button.nav-link#nav-profile-tab[data-bs-toggle="tab" data-bs-target="#nav-events" type="button" role="tab" aria-controls="nav-events" aria-selected="false"] Owned Events
+
+.tab-content#nav-tabContent
+  .tab-pane.fade.show.active#nav-tasks[role="tabpanel" aria-labelledby="nav-tasks-tab"]
+    .row
+      .col-md-2 Task Code
+      .col-md-5 Title
+    - @position.tasks.each do | t |
+      .row
+        .col-md-2= link_to t.code, task_path(t)
+        .col-md-5= t.title
+  .tab-pane.fade#nav-events[role="tabpanel" aria-labelledby="nav-events-tab"]
+    .row
+      .col-md-2 Event Code
+      .col-md-5 Title
+    - @position.events.each do | e |
+      .row
+        .col-md-2= link_to e.code, event_path(e)
+        .col-md-5= e.title

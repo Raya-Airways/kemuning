@@ -1,0 +1,18 @@
+p.lead Documents
+table.table
+  thead
+    tr
+      th Filename
+      th Association
+      th Code
+      th Description
+
+  tbody
+    - @documents.each do |document|
+      tr
+        td = link_to document.blob.filename, rails_blob_path(document, disposition: "inline")
+        td = document.record_type
+        td = document.record.code
+        td = document.record.title
+
+br

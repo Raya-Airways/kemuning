@@ -3,10 +3,15 @@
 .row
   .col-md-1.label Seq.
   .col-md-2.label Owner
-  .col-md-4.label Title
+  .col-md-3.label Title
+  .col-md-4.label Description
 
 - @task.events.order(sequence: :asc).each do | e |
   .row
-    .col-md-1= link_to e.sequence, edit_event_path(e)
-    .col-md-2= e.position_id
-    .col-md-4= e.title
+    .col-md-1
+      = link_to e.sequence, edit_event_path(e)
+      | &nbsp;
+      = e.document.attached? ? (link_to (content_tag(:i, "", class: 'fas fa-paperclip')), rails_blob_path(e.document, disposition: "inline"))  : ""
+    .col-md-2= e.position ? e.position.name : e.owner
+    .col-md-3= e.title
+    .col-md-5= e.description

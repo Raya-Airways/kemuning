@@ -1,50 +1,70 @@
-p#notice = notice
+dl.row
+  dt.col-md-2 Process Code
+  dd.col-md-8= @task.code
+  dd.col-md-2
+    = link_to (content_tag(:i, "", class: 'fas fa-file-pdf fa-lg') + " Download as PDF"), publish_task_path(@task, format: "pdf"), class: "btn btn-outline-dark", data: {toggle: "tooltip", placement: "left"}, "title"=> "Download as PDF"
 
 dl.row
-  dt.col-md-3 Process Code
-  dd.col-md-9= @task.code
+  dt.col-md-2 Title
+  dd.col-md-10= @task.title
 
 dl.row
-  dt.col-md-3 Title
-  dd.col-md-9= @task.title
+  dt.col-md-2 Owner
+  dd.col-md-10 #{@task.owner} ~ #{display_owner(@task.owner)}
+  //pattern match for levels
 
 dl.row
-  dt.col-md-3 Owner
-  dd.col-md-9 #{@task.position} ~ #{display_owner(@task.position)}
+  dt.col-md-2 Process Description
+  dd.col-md-10= @task.description
 
 dl.row
-  dt.col-md-3 Process Description
-  dd.col-md-9= @task.description
+  dt.col-md-2 Notes
+  dd.col-md-10== @task.notes
 
 dl.row
-  dt.col-md-3 Notes
-  dd.col-md-9== @task.notes
-
-dl.row
-  dt.col-md-3 BPMN
-  dd.col-md-9
+  dt.col-md-2 BPMN
+  dd.col-md-10
     - if @task.bpmn.attachment
       = render 'viewer-bpmn'
 
+
 dl.row
-  dt.col-md-3
+  dt.col-md-2 BPMN PNG
+  dd.col-md-10
+    = @task.png_bpmn.filename
+    - if @task.png_bpmn.attachment
+      br
+      = image_tag(url_for(@task.png_bpmn), width: "100%")
+
+
+
+dl.row
+  dt.col-md-2
     | Event Description <br>
     = link_to (content_tag(:i, "", class: 'fas fa-file-alt') + " Add New Event"), new_event_path(task: @task), class: "btn btn-secondary", data: {toggle: "tooltip", placement: "left"}, "title"=>"Create Event"
 
-  dd.col-md-9= render 'events-table'
+  dd.col-md-10= render 'events-table'
 
 hr
-dl.row
-  dt.col-md-3 Findings
-  dd.col-md-9== @task.findings
 
 dl.row
-  dt.col-md-3 Risks
-  dd.col-md-9== @task.risks
+  dt.col-md-2 Documents
+  dd.col-md-10
+    - if @task.events
+      - get_document_list(@task).each do | d |
+        = link_to d[0], d[1]
 
 dl.row
-  dt.col-md-3 Recommendations
-  dd.col-md-9== @task.recommendations
+  dt.col-md-2 Findings
+  dd.col-md-10== @task.findings
+
+dl.row
+  dt.col-md-2 Risks
+  dd.col-md-10== @task.risks
+
+dl.row
+  dt.col-md-2 Recommendations
+  dd.col-md-10== @task.recommendations
 
 
 => link_to 'Edit', edit_task_path(@task)

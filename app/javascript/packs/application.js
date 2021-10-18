@@ -8,13 +8,21 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-import 'bootstrap/dist/js/bootstrap'
-import "bootstrap/dist/css/bootstrap";
-import "stylesheets/application"
 require("jquery");
+import $ from 'jquery';
+
+global.$ = $
+global.jQuery = $
+
+require('jquery-ui');
+
+import 'bootstrap/dist/js/bootstrap';
+import "bootstrap/dist/css/bootstrap";
+import "stylesheets/application";
+
 //import "bpmn-js"
 //import BpmnViewer from 'bpmn-js';
-
+require("packs/custom")
 
 Rails.start()
 Turbolinks.start()
@@ -24,4 +32,5 @@ require("trix")
 require("@rails/actiontext")
 //require("bpmn-js")
 
+import "@fortawesome/fontawesome-free/js/all.js";
 import "@fortawesome/fontawesome-free/css/all.css";
