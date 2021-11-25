@@ -13,6 +13,9 @@ class PositionsController < ApplicationController
   # GET /positions/new
   def new
     @position = Position.new
+    if params[:reports_to]
+      @position.parent_id = params[:reports_to].to_i
+    end
   end
 
   # GET /positions/1/edit
