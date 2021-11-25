@@ -1,4 +1,9 @@
 p.lead Listing positions
+.row
+  .col-md-8
+    = link_to "Level 2", positions_path(search: "level2"), class: "btn btn-outline-secondary btn-sm"
+    = link_to "Level 3", positions_path(search: "level3"), class: "btn btn-outline-secondary btn-sm"
+    = link_to "ALL", positions_path, class: "btn btn-outline-secondary btn-sm " 
 table.table
   thead
     tr
