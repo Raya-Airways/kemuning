@@ -6,9 +6,9 @@ class PositionsController < ApplicationController
     @positions = Position.order(combo_code: :asc)
     if params[:search]
       if params[:search] == "level2"
-        @positions = @positions.where("length(combo_code) <= 3" )
+        @positions = @positions.where("length(combo_code) < 5" )
       elsif params[:search] == "level3"
-        @positions = @positions.where("length(combo_code) <= 5" )
+        @positions = @positions.where("length(combo_code) <= 6" )
       end
     end
   end
@@ -20,6 +20,7 @@ class PositionsController < ApplicationController
   # GET /positions/new
   def new
     @position = Position.new
+    @positions = Position.order(combo_code: :asc)
     if params[:reports_to]
       @position.parent_id = params[:reports_to].to_i
     end

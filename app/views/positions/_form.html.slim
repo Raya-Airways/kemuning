@@ -25,7 +25,7 @@
   .row
     .col-md-9.mb-3
       = f.label :parent_id, "Reports to"
-      = f.collection_select :parent_id, Position.all, :id, :position_description, {selected:  @position.parent_id}, class: "form-select"
+      = f.collection_select :parent_id, @positions, :id, :position_description, {selected:  @position.parent_id}, class: "form-select"
 
 
   .row
