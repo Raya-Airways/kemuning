@@ -6,7 +6,7 @@
   .col-md-3.label Title
   .col-md-4.label Description
 
-- @task.events.order(sequence: :asc).each do | e |
+- @task.events.includes([:document_attachment, :position]).order(sequence: :asc).each do | e |
   .row
     .col-md-1
       = link_to e.sequence, edit_event_path(e)

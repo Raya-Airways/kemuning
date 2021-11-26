@@ -4,6 +4,13 @@ class PositionsController < ApplicationController
   # GET /positions or /positions.json
   def index
     @positions = Position.order(combo_code: :asc)
+    if params[:search]
+      if params[:search] == "level2"
+        @positions = @positions.where("length(combo_code) < 5" )
+      elsif params[:search] == "level3"
+        @positions = @positions.where("length(combo_code) <= 6" )
+      end
+    end
   end
 
   # GET /positions/1 or /positions/1.json
@@ -13,6 +20,10 @@ class PositionsController < ApplicationController
   # GET /positions/new
   def new
     @position = Position.new
+    @positions = Position.order(combo_code: :asc)
+    if params[:reports_to]
+      @position.parent_id = params[:reports_to].to_i
+    end
   end
 
   # GET /positions/1/edit
