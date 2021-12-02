@@ -39,7 +39,6 @@ class PublishTask < Prawn::Document
     move_down 20
     task_list(@staff)
     move_down 20
-    start_new_page
   end
 
   def footer
@@ -50,11 +49,7 @@ class PublishTask < Prawn::Document
       text "Kemuning App, Data by Raya Airways © 2021 - #{Date.today.year}", size: 9, align: :left
     end
     bounding_box([200, 0],:width => 560,:height => 200) do
-      if @task
-        text "#{@task.code}: #{@task.title}", size: 9, align: :right
-      else
-        text "#{@staff.combo_code} - #{@staff.name}",  size: 9, align: :right
-      end
+      text "#{@staff.combo_code} - #{@staff.name}",  size: 9, align: :right
     end
   end
 
