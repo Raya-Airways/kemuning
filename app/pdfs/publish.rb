@@ -1,11 +1,18 @@
 class Publish < Prawn::Document
+  include PdfHelper
 
   def initialize(task, view)
     super({top_margin: 50, page_size: 'A4', page_layout: :landscape })
     @task = task
     @view = view
-    text "Business Process", :align => :right, :size => 14, :style => :bold
+    footer_text = "#{task.code}: #{task.title}"
+    repeat :all do
+      raya_pdf_header
+    end
     main_content
+    repeat :all do
+      raya_pdf_footer(footer_text)
+    end
   end
 
   def main_content

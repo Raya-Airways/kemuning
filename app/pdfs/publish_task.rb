@@ -1,5 +1,6 @@
 class PublishTask < Prawn::Document
 
+
   def initialize(staff, view)
     super({top_margin: 90, page_size: 'A4', page_layout: :landscape })
     @staff = staff
