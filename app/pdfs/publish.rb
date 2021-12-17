@@ -42,7 +42,8 @@ class Publish < Prawn::Document
   end
 
   def event_table(events)
-    move_down 10
+    start_new_page
+    move_down 20
     text "Event Description"
     move_down 5
     table(event_list_table(events), header: true) do
@@ -70,7 +71,7 @@ class Publish < Prawn::Document
   end
 
   def document_list(events)
-    move_down 10
+    move_down 20
     text "Documents"
     move_down 5
     document_from_url(events)
