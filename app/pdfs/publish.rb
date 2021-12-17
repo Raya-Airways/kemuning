@@ -37,13 +37,14 @@ class Publish < Prawn::Document
       if task.png_bpmn.attached?
         #svg IO.read(ActiveStorage::Blob.service.send(:path_for, task.png_bpmn.key))
         image ActiveStorage::Blob.service.send(:path_for, task.png_bpmn.key), fit: [770, 350], position: :left
+        start_new_page
+        move_down 5
       end
     #svg IO.Read(ActiveStorage::Blob.service.send(:path_for, task.png_bpmn.key))
   end
 
   def event_table(events)
-    start_new_page
-    move_down 40
+    move_down 35
     text "Event Description"
     move_down 5
     table(event_list_table(events), header: true) do

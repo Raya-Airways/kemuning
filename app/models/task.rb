@@ -2,6 +2,8 @@ class Task < ApplicationRecord
 
   validates :code, uniqueness: true
 
+  belongs_to  :position
+
   has_many :events
   accepts_nested_attributes_for :events
 

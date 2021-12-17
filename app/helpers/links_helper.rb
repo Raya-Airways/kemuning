@@ -41,7 +41,7 @@ module LinksHelper
     # usage object, icon: fa icon name, path: path without _path, p: params
     html = set_html
     title = path.titleize
-    link_to content_tag(:i, "", class: "fas fa-#{icon}"), send("#{path}_path", {id: object, format: format}), class: html[:btn], data: html[:dataset], "title"=> title
+    link_to content_tag(:i, "", class: "fas fa-#{icon}"), send("#{path}_path", {id: object, format: format}), class: html[:btn], data: html[:dataset], "title"=> title, target: :_blank
   end
 
 
