@@ -33,8 +33,8 @@ dl.row
   dd.col-md-10
     = @task.png_bpmn.filename
     - if @task.png_bpmn.attachment
-      br
-      = image_tag(url_for(@task.png_bpmn), width: "100%")
+      .png_display
+        = image_tag(url_for(@task.png_bpmn))
 
 
 

@@ -20,7 +20,7 @@ class Publish < Prawn::Document
   end
 
   def task_list
-    events = Event.where(task_id: @task).order(sequence: :asc)
+    events = Event.where(task_id: @task).includes([:position]).order(sequence: :asc)
     text "#{@task.code} #{@task.title}", :color => "2F5496", :size => 13
     text "Subprocess Description"
     move_down 5
@@ -43,7 +43,7 @@ class Publish < Prawn::Document
 
   def event_table(events)
     start_new_page
-    move_down 20
+    move_down 40
     text "Event Description"
     move_down 5
     table(event_list_table(events), header: true) do
@@ -71,7 +71,7 @@ class Publish < Prawn::Document
   end
 
   def document_list(events)
-    move_down 20
+    move_down 35
     text "Documents"
     move_down 5
     document_from_url(events)
