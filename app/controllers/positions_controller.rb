@@ -28,6 +28,7 @@ class PositionsController < ApplicationController
 
   # GET /positions/1/edit
   def edit
+    @positions = Position.order(combo_code: :asc)
   end
 
   # POST /positions or /positions.json
