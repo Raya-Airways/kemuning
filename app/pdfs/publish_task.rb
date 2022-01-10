@@ -41,7 +41,7 @@ class PublishTask < Prawn::Document
   end
 
   def task_list(staff)
-    @tasks=Task.where(position_id: staff.id).includes([:png_bpmn_attachment])
+    @tasks=Task.where(position_id: staff.id).includes([:png_bpmn_attachment]).order(code: :asc)
     move_down 20
     text "Subprocess description", :color => "2F5496", :size => 16
     move_down 5

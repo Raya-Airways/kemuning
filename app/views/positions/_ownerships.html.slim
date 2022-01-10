@@ -8,7 +8,7 @@ nav
     .row
       .col-md-2 Task Code
       .col-md-5 Title
-    - @position.tasks.each do | t |
+    - @position.tasks.order(code: :asc).each do | t |
       .row
         .col-md-2= link_to t.code, task_path(t)
         .col-md-5= t.title
