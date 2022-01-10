@@ -1,5 +1,14 @@
 p.lead Listing Processes
-= link_to 'New Task', new_task_path
+.row
+  .col-sm-6.newbar
+    = link_to 'New Task', new_task_path
+  .col-sm-6.search_bar
+    = form_tag tasks_path, :method => 'get' do
+      .input-group
+        = text_field_tag :search, params[:search], class: "form-control", id: "tasks_search", placeholder: "Code OR Title contains"
+        = submit_tag "Search", :name => nil, class: "btn btn-outline-secondary"
+        = link_to "Clear", tasks_path, class: "btn btn-outline-secondary"
+
 table.table
   thead
     tr

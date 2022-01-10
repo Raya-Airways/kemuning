@@ -4,6 +4,9 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.includes([:png_bpmn_attachment]).order(code: :asc)
+    if params[:search]
+      @tasks = @tasks.where("code LIKE :cc OR title LIKE :pt ", cc: "#{params[:search]}%", pt: "%#{params[:search]}%")
+    end
   end
 
   # GET /tasks/1 or /tasks/1.json
