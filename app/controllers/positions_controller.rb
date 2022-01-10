@@ -77,7 +77,7 @@ class PositionsController < ApplicationController
     respond_to do |format|
        format.pdf do
          pdf = PublishTasks.new(@positions, view_context)
-         send_data pdf.render, filename: "Business_Process-#{Date.today}",
+         send_data pdf.render, filename: "BPA_Raya_Airways_#{Date.today}-",
                                type: "application/pdf",
                                disposition: "inline"
        end
@@ -88,7 +88,7 @@ class PositionsController < ApplicationController
     respond_to do |format|
        format.pdf do
          pdf = PublishTask.new(@position, view_context)
-         send_data pdf.render, filename: "Business_Process-#{Date.today}",
+         send_data pdf.render, filename: "BPA_#{@position.combo_code.gsub('.','')}_#{@position.name}_#{Date.today}",
                                type: "application/pdf",
                                disposition: "inline"
        end
