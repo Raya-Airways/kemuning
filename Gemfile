@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'omniauth-azure-activedirectory-v2', '~> 1.0'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
