@@ -10,7 +10,7 @@ module Kemuning
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-    config.relative_url_root = "/kemuning"
+    #config.relative_url_root = "/kemuning"
     #config.assets.prefix = "/kemuning#{config.assets.prefix}"
 
 

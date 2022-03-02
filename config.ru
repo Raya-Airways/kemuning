@@ -2,7 +2,7 @@
 
 require_relative "config/environment"
 
-map '/kemuning' do
-  run Rails.application
-  Rails.application.load_server
-end
+#map '/kemuning' do
+run Rails.application
+Rails.application.load_server
+#end
