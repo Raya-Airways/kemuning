@@ -10,8 +10,12 @@ dl.row
 
 dl.row
   dt.col-md-2 Owner
-  dd.col-md-10 #{@task.owner} ~ #{display_owner(@task.owner)}
-  //pattern match for levels
+  - if @task.owner.blank?
+    dd.col-md-10= @task.position.position_description
+  - else
+    dd.col-md-10 #{@task.owner} ~ #{display_owner(@task.owner)}
+
+    //pattern match for levels
 
 dl.row
   dt.col-md-2 Process Description
@@ -33,8 +37,8 @@ dl.row
   dd.col-md-10
     = @task.png_bpmn.filename
     - if @task.png_bpmn.attachment
-      br
-      = image_tag(url_for(@task.png_bpmn), width: "100%")
+      .png_display
+        = image_tag(url_for(@task.png_bpmn))
 
 
 

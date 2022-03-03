@@ -18,6 +18,7 @@ none
 kemuning_staging.sql
 scp devraya@staging:/home/devraya/kemuning_staging.sql db/kemuning.sql
 
+scp devraya@staging://var/www/kemuning-raya-staging/current/db/seeds.rb db/seeds.rb
 
 Staff post:string reports_to:integer rank:string grade:string department:string units:integer
 

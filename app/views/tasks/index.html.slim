@@ -1,4 +1,13 @@
 p.lead Listing Processes
+.row
+  .col-sm-6.newbar
+    = link_to 'New Task', new_task_path
+  .col-sm-6.search_bar
+    = form_tag tasks_path, :method => 'get' do
+      .input-group
+        = text_field_tag :search, params[:search], class: "form-control", id: "tasks_search", placeholder: "Code OR Title contains"
+        = submit_tag "Search", :name => nil, class: "btn btn-outline-secondary"
+        = link_to "Clear", tasks_path, class: "btn btn-outline-secondary"
 
 table.table
   thead
@@ -15,11 +24,11 @@ table.table
         td = task.title
         td = task.description.truncate_words(9)
         td
+          - if task.png_bpmn.attachment
+            | <i class="fas fa-project-diagram"></i>
           = link_to_action("pdf", task, "publish")
           = link_to_action("show", task)
           = link_to_action("edit", task)
           = link_to_action("delete", task)
 
 br
-
-= link_to 'New Task', new_task_path

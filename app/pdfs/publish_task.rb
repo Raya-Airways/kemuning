@@ -1,30 +1,17 @@
 class PublishTask < Prawn::Document
+  include PdfHelper
 
   def initialize(staff, view)
     super({top_margin: 90, page_size: 'A4', page_layout: :landscape })
     @staff = staff
     @view = view
     repeat :all do
-      header
+      raya_pdf_header
     end
     main_content
     repeat :all do
       footer
     end
-  end
-
-  def header
-    bounding_box([0, 505],:width => 200,:height => 15) do
-      text "Business Process", size: 12, align: :left, style: :bold
-    end
-    bounding_box([250, 520],:width => 280,:height => 15) do
-      text "Internal Use Only", size: 12, align: :center
-    end
-    bounding_box([700, 530],:width => 60,:height => 45) do
-      image "#{Rails.root}/public/a4logo.png", width: 60
-    end
-    divider
-    move_down 10
   end
 
   def main_content
@@ -39,7 +26,6 @@ class PublishTask < Prawn::Document
     move_down 20
     task_list(@staff)
     move_down 20
-    start_new_page
   end
 
   def footer
@@ -50,16 +36,12 @@ class PublishTask < Prawn::Document
       text "Kemuning App, Data by Raya Airways © 2021 - #{Date.today.year}", size: 9, align: :left
     end
     bounding_box([200, 0],:width => 560,:height => 200) do
-      if @task
-        text "#{@task.code}: #{@task.title}", size: 9, align: :right
-      else
-        text "#{@staff.combo_code} - #{@staff.name}",  size: 9, align: :right
-      end
+      text "#{@staff.combo_code} - #{@staff.name}",  size: 9, align: :right
     end
   end
 
   def task_list(staff)
-    @tasks=Task.where(position_id: staff.id)
+    @tasks=Task.where(position_id: staff.id).includes([:png_bpmn_attachment]).order(code: :asc)
     move_down 20
     text "Subprocess description", :color => "2F5496", :size => 16
     move_down 5
@@ -93,12 +75,14 @@ class PublishTask < Prawn::Document
       if task.png_bpmn.attached?
         #svg IO.read(ActiveStorage::Blob.service.send(:path_for, task.png_bpmn.key))
         image ActiveStorage::Blob.service.send(:path_for, task.png_bpmn.key), fit: [770, 350], position: :left
+        start_new_page
+        move_down 5
       end
     #svg IO.Read(ActiveStorage::Blob.service.send(:path_for, task.png_bpmn.key))
   end
 
   def event_table(events)
-    move_down 10
+    move_down 20
     text "Event Description"
     move_down 5
     table(event_list_table(events), header: true) do
@@ -126,7 +110,7 @@ class PublishTask < Prawn::Document
   end
 
   def document_list(events)
-    move_down 10
+    move_down 20
     text "Documents"
     move_down 5
     documents = ActiveStorage::Attachment.where(name: "document").where(record_id: events)
