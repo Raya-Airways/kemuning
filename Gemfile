@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.4'
+gem 'rails', '~> 7.0.2'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'omniauth-azure-activedirectory-v2', '~> 1.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
@@ -14,8 +14,12 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'puma', '~> 4.3', '>= 4.3.8'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+
+#importmap replaces webpacker
+gem 'jsbundling-rails', '~> 1.0', '>= 1.0.2'
+gem 'cssbundling-rails', '~> 1.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 5.4'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -69,7 +73,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'bullet', '~> 6.1'
+  #gem 'bullet', '~> 6.1'
 end
 
 group :test do

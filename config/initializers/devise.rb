@@ -309,13 +309,13 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
 
-  config.omniauth :microsoft,
-                  client_id:     Rails.application.credentials.azure[:client_id],
-                  client_secret: Rails.application.credentials.azure[:client_secret],
-                  tenant_id:     Rails.application.credentials.azure[:tenant_id],
-                  name: 'microsoft',
-                  callback_url: '/users/auth/microsoft/callback',
-                  strategy_class: OmniAuth::Strategies::AzureActivedirectoryV2
+  #config.omniauth :microsoft,
+                  #client_id:     Rails.application.credentials.azure[:client_id],
+                  #client_secret: Rails.application.credentials.azure[:client_secret],
+                  #tenant_id:     Rails.application.credentials.azure[:tenant_id],
+                  #name: 'microsoft',
+                  #callback_url: '/users/auth/microsoft/callback',
+                  #strategy_class: OmniAuth::Strategies::AzureActivedirectoryV2
 
 
 end

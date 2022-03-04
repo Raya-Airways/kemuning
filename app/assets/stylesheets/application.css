@@ -14,3 +14,13 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+ /* @import "trix/dist/trix"; */
+
+ @import "actiontext.scss";
+ @import "custom.scss";
+
+ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+ @import '@fortawesome/fontawesome-free/scss/fontawesome';
+ @import '@fortawesome/fontawesome-free/scss/solid';
