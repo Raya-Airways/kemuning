@@ -1,12 +1,4 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-
-alert('Hello ESBUILD World')
-
-
-import Rails from "@rails/ujs"
-
-import "@popperjs/core"
-import "bootstrap"
-import * as bootstrap from "bootstrap"
-
+// Entry point for the build script in your package.json
 import "@hotwired/turbo-rails"
+import "./controllers"
+import * as bootstrap from "bootstrap"
