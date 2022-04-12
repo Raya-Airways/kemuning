@@ -3,7 +3,7 @@ p.lead Listing positions
   .col-md-8
     = link_to "Level 2", positions_path(search: "level2"), class: "btn btn-outline-secondary btn-sm"
     = link_to "Level 3", positions_path(search: "level3"), class: "btn btn-outline-secondary btn-sm"
-    = link_to "ALL", positions_path, class: "btn btn-outline-secondary btn-sm " 
+    = link_to "ALL", positions_path, class: "btn btn-outline-secondary btn-sm "
 table.table
   thead
     tr
@@ -21,9 +21,9 @@ table.table
         td = position.name
         td.center = position.tasks.exists? ? ('<span class="badge bg-info">' + "#{position.tasks.count}" + '</span>').html_safe : ""
         td.center = position.events.exists? ? ('<span class="badge bg-info">' + "#{position.events.count}" + '</span>').html_safe : ""
-        td= position.tasks.exists? ? (link_to_with_format(position, "file-pdf", "publish_task_position", "pdf" )) : ""
+        td= position.tasks.exists? ? (link_to_with_format(position, "file-pdf-fill", "publish_task_position", "pdf" )) : ""
         td
-          = link_to_with_params(position, "user-plus", "new_position", "reports_to")
+          = link_to_with_params(position, "person-plus", "new_position", "reports_to")
           = link_to_action("show", position)
           = link_to_action("edit", position)
           = link_to_action("delete", position)

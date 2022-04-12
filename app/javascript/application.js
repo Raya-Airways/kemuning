@@ -1,12 +1,15 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-
-alert('Hello ESBUILD World')
-
-
+// Entry point for the build script in your package.json
+import "@hotwired/turbo-rails"
+import "./controllers"
+import * as bootstrap from "bootstrap"
+import "./src/jquery"
+import "./src/jquery-ui.min"
 import Rails from "@rails/ujs"
 
-import "@popperjs/core"
-import "bootstrap"
-import * as bootstrap from "bootstrap"
 
-import "@hotwired/turbo-rails"
+$(function() {
+  console.log("Aloo Dunya");
+  $('p.replace_by_js').replaceWith("<p>Javascript Enabled!</p>");
+  $( "#dialog" ).dialog();
+})
+Rails.start()
