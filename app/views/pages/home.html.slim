@@ -6,6 +6,7 @@
           h5.card-title Download Business Process Document
           p.card-text We'll generate a new document based on the latest information, click to download now.
           = link_to (content_tag(:i, "", class: 'far fa-file-pdf') + " Download PDF"), publish_tasks_positions_path(format: "pdf"), class: "btn btn-primary", data: {toggle: "tooltip", placement: "left"}, "title"=>"Download PDF"
+          p.replace_by_js No Javascript
 .row
   .card-group
     .col-sm-2
