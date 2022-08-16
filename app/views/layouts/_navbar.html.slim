@@ -14,4 +14,4 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         - if signed_in?
           | Hello #{current_user.first_name}
         - else
-          li.nav-item= link_to "Log in Raya", user_microsoft_omniauth_authorize_path(prompt: 'select_account'), method: :post, class: "nav-link", "aria-current":"page"
+          li.nav-item= button_to "Log in Raya", user_microsoft_omniauth_authorize_path(prompt: 'select_account'), method: :post, class: "nav-link", "data-turbo": "false", "aria-current":"page"

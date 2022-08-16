@@ -8,7 +8,7 @@ gem 'rails', '~> 7.0.2'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'omniauth-azure-activedirectory-v2', '~> 1.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
-
+gem "sprockets-rails"
 # Use Puma as the app server
 #gem 'puma', '~> 5.0'
 gem 'puma', '~> 4.3', '>= 4.3.8'
@@ -18,10 +18,10 @@ gem 'sass-rails', '>= 6'
 #importmap replaces webpacker
 gem 'jsbundling-rails', '~> 1.0', '>= 1.0.2'
 gem 'cssbundling-rails', '~> 1.1'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.4'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem "turbo-rails"
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem "stimulus-rails"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 #layout and processor rubygems
-gem 'bootstrap', '~> 5.1'
+#
 gem 'slim', '~> 4.1'
 gem 'slim-rails', '~> 3.3'
 

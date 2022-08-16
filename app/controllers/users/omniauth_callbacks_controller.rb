@@ -1,11 +1,15 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def microsoft
+    @user = User.from_omniauth(request.env["omniauth.auth"])
     puts "----------------- "
-    puts request.env["omniauth.env"].inspect
-    response_params = request.env['omniauth.auth'].inspect
-    puts response_params
+    puts @user.inspect
+    #puts "----------------- "
+    #puts request.env["omniauth.env"].inspect
+    #response_params = request.env['omniauth.auth'].inspect
+    #puts response_params
 
-    @user = User.from_omniauth(request.env["omniauth.env"]) unless request.env["omniauth.env"].nil?
+    #@user = User.from_omniauth(request.env["omniauth.env"]) unless request.env["omniauth.env"].nil?
+
     if @user&.persisted?
         sign_in_and_redirect @user, event: :authentication
     else
