@@ -310,9 +310,9 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   config.omniauth :microsoft,
-                  client_id:     Rails.application.credentials.azure.client_id,
-                  client_secret: Rails.application.credentials.azure.client_secret,
-                  tenant_id:     Rails.application.credentials.azure.tenant_id,
+                  #client_id:     Rails.application.credentials.azure.client_id,
+                  #client_secret: Rails.application.credentials.azure.client_secret,
+                  #tenant_id:     Rails.application.credentials.azure.tenant_id,
                   name: 'microsoft',
                   callback_url: '/users/auth/microsoft/callback',
                   strategy_class: OmniAuth::Strategies::AzureActivedirectoryV2

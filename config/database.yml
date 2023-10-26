@@ -13,13 +13,11 @@ development:
   <<: *default
   database: db/development.sqlite3
 
-#staging:
-  #<<: *default
-  #adapter: postgresql
-  #database: kemuning_staging
-  #host: localhost
-  #username: <%= Rails.application.credentials.database[:user] %>
-  #password: <%= Rails.application.credentials.database[:password] %>
+staging:
+  <<: *default
+  adapter: postgresql
+  database: kemuning_staging
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
